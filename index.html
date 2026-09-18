@@ -98,32 +98,41 @@ h1 em{font-style:italic;color:var(--z1)}
 .mapcard .thumb svg{display:block;width:100%;height:auto}
 
 /* ---- price sections ---- */
-.sec{margin:0 0 32px}
+.sec{margin:0 0 30px}
 .sechead{display:flex;align-items:baseline;gap:12px;padding-bottom:8px;
   border-bottom:2px solid var(--ink);margin-bottom:2px}
 .sechead h2{margin:0;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;
   letter-spacing:.15em;text-transform:uppercase}
 .sechead .cnt{margin-left:auto;font-size:11.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
 .prices{list-style:none;margin:0;padding:0}
-.row{display:grid;grid-template-columns:30px minmax(0,1fr) auto auto;
-  gap:2px 14px;align-items:baseline;padding:13px 4px 13px 0;border-bottom:1px solid var(--rule-soft)}
-@media (max-width:560px){
-  .row{grid-template-columns:30px minmax(0,1fr);gap:8px 12px}
-  .row .fig{grid-column:2;display:flex;justify-content:space-between;max-width:210px}
-}
-.row .pin{grid-row:1/span 2;width:25px;height:25px;border-radius:50%;background:var(--c);
+.row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:0 14px;
+  padding:16px 2px 17px 0;border-bottom:1px solid var(--rule-soft)}
+.row .pin{grid-area:1/1/6/2;width:25px;height:25px;border-radius:50%;background:var(--c);
   color:var(--marker-ring);display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;align-self:start;margin-top:1px}
-.row .name{font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
-  font-weight:500;font-size:18px;line-height:1.2;text-wrap:balance}
+  font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;align-self:start;margin-top:3px}
+.row .name{grid-area:1/2/2/3;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
+  font-weight:500;font-size:18.5px;line-height:1.2;text-wrap:balance}
 .row .name .abbr{font-family:'Archivo',sans-serif;font-size:10.5px;font-weight:700;
-  letter-spacing:.1em;color:var(--ink-faint);vertical-align:2px;margin-left:5px}
-.row .note{grid-column:2;font-size:12px;color:var(--ink-faint);margin-top:3px}
-.row .fig{display:flex;flex-direction:column;align-items:flex-end;gap:1px;min-width:74px}
-@media (max-width:560px){.row .fig{flex-direction:row;align-items:baseline;gap:10px;min-width:0}}
-.row .lab{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--ink-faint)}
-.row .val{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.row .val.free{color:var(--z3);font-size:14px}
+  letter-spacing:.1em;color:var(--ink-faint);vertical-align:2px;margin-left:6px;white-space:nowrap}
+.row .price{grid-area:1/3/2/4;display:flex;flex-direction:column;align-items:flex-end;
+  gap:1px;padding-left:8px}
+.row .price .lab{font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;color:var(--ink-faint)}
+.row .price .val{font-size:19px;font-weight:600;font-variant-numeric:tabular-nums;
+  letter-spacing:-.01em;white-space:nowrap}
+.row .when{grid-area:2/2/3/3;display:flex;flex-wrap:wrap;align-items:center;
+  gap:6px 10px;margin-top:6px;font-size:12px}
+.row .hours{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink-soft);letter-spacing:.02em}
+.row .tag{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid;border-radius:3px;padding:2px 7px;line-height:1.5}
+.row .tag.shut{color:var(--z1);border-color:var(--z1)}
+.row .tag.ok{color:var(--z3);border-color:var(--z3)}
+.row .why{grid-area:3/2/4/3;margin-top:9px;font-size:13.5px;color:var(--ink-soft);
+  line-height:1.52;max-width:66ch}
+.row .why em{font-style:italic;color:var(--ink)}
+.row .note{grid-area:4/2/5/3;margin-top:8px;font-size:12px;color:var(--ink-faint)}
+.secnote{margin:14px 0 0;font-size:12px;line-height:1.55;color:var(--ink-faint);max-width:74ch}
+.secnote b{color:var(--ink-soft);font-weight:600}
 
 /* ---- totals ---- */
 .totals{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
@@ -157,7 +166,7 @@ footer a{color:var(--ink-soft)}
   <header class="masthead">
     <p class="eyebrow">Biglietti &middot; prezzi raccolti a settembre 2026</p>
     <h1>Musei di <em>Napoli</em></h1>
-    <p class="standfirst">I cinque musei principali della citt&agrave; e cinque fra i civici e gli statali pi&ugrave; vicini, con il costo d&rsquo;ingresso. Il numero accanto a ciascun nome &egrave; quello che porta sulla mappa.</p>
+    <p class="standfirst">I cinque musei principali della citt&agrave; — con orari, giorno di chiusura e il motivo per cui vale la pena entrarci — e cinque fra i civici e gli statali pi&ugrave; vicini. Il numero accanto a ciascun nome &egrave; quello che porta sulla mappa.</p>
   </header>
 
   <a class="mapcard" href="mappa.html">
@@ -173,11 +182,13 @@ footer a{color:var(--ink-soft)}
   <section class="sec">
     <div class="sechead"><h2>I Top 5 Musei</h2><span class="cnt">5 sedi</span></div>
     <ul class="prices" id="top5"></ul>
+    <p class="secnote"><b>Orari:</b> nei musei statali (MANN, Capodimonte, Palazzo Reale, San Martino) l’ultimo ingresso è consentito fino a un’ora prima della chiusura. <b>Riduzioni:</b> negli stessi musei il ridotto UE 18–25 costa 2,00 €; al Tesoro di San Gennaro il ridotto è di 11,00 €.</p>
   </section>
 
   <section class="sec">
     <div class="sechead"><h2>Altri Musei Statali e Comunali</h2><span class="cnt">5 sedi</span></div>
     <ul class="prices" id="altri"></ul>
+    <p class="secnote">Per queste sedi gli orari non sono riportati: cambiano spesso, conviene verificarli sul sito ufficiale. Il ridotto è di 2,00 € quasi ovunque, 4,00 € al MADRE.</p>
   </section>
 
   <div class="totals" id="totals"></div>
@@ -189,41 +200,59 @@ footer a{color:var(--ink-soft)}
     <p>I totali sono la semplice somma dei prezzi interi e non tengono conto di riduzioni, biglietti cumulativi o giornate a ingresso gratuito.</p>
   </footer>
 </div>
-
 <script>
 (function(){
   "use strict";
   // n = numero del segnaposto sulla mappa, c = colore del quartiere
   var TOP5=[
-    {n:1,  c:"--z1", name:"Museo Archeologico Nazionale", abbr:"MANN", a:["Intero","20,00 €"], b:["Ridotto","2,00 €"], price:20},
-    {n:13, c:"--z3", name:"Museo e Real Bosco di Capodimonte", note:"Bosco ad accesso gratuito", a:["Intero","15,00 €"], b:["Ridotto","2,00 €"], price:15},
-    {n:11, c:"--z2", name:"Palazzo Reale di Napoli", a:["Intero","10,00 €"], b:["Ridotto","2,00 €"], price:10},
-    {n:14, c:"--z3", name:"Certosa e Museo di San Martino", a:["Intero","6,00 €"], b:["Ridotto","2,00 €"], price:6},
-    {n:4,  c:"--z1", name:"Museo del Tesoro di San Gennaro", note:"Audioguida inclusa nel biglietto intero", a:["Intero","15,00 €"], b:["Ridotto","11,00 €"], price:15}
+    {n:1, c:"--z1", name:"Museo Archeologico Nazionale di Napoli", abbr:"MANN",
+     hours:"09:00 \u2013 19:30", closed:"marted\u00EC", price:"20,00 \u20AC", num:20,
+     why:"\u00C8 uno dei musei archeologici pi\u00F9 importanti e ricchi al mondo. Custodisce le straordinarie collezioni di affreschi, mosaici e sculture provenienti dagli scavi di Pompei ed Ercolano (tra cui il celebre Mosaico di Alessandro), oltre alla prestigiosa Collezione Farnese di sculture classiche."},
+    {n:13, c:"--z3", name:"Museo e Real Bosco di Capodimonte",
+     hours:"08:30 \u2013 19:30", closed:"mercoled\u00EC", price:"15,00 \u20AC", num:15,
+     note:"Bosco ad accesso gratuito",
+     why:"\u00C8 la grande Galleria Nazionale di Napoli, ospitata in una maestosa reggia borbonica immersa in un parco storico immenso. Conserva capolavori assoluti della pittura italiana ed europea firmati da maestri come Caravaggio (<em>La Flagellazione</em>), Tiziano, Raffaello, Brueghel il Vecchio e Parmigianino."},
+    {n:11, c:"--z2", name:"Palazzo Reale di Napoli",
+     hours:"09:00 \u2013 20:00", closed:"mercoled\u00EC", price:"10,00 \u20AC", num:10,
+     why:"Affacciato sulla spettacolare Piazza del Plebiscito, \u00E8 stato il centro del potere monarchico a Napoli per secoli. Attraversando il maestoso Scalone d\u2019Onore e gli Appartamenti Reali storici, offre un\u2019immersione completa nei fasti delle corti spagnola, austriaca e borbonica."},
+    {n:14, c:"--z3", name:"Certosa e Museo di San Martino",
+     hours:"08:30 \u2013 18:30", closed:"mercoled\u00EC", price:"6,00 \u20AC", num:6,
+     why:"Situata sulla cima della collina del Vomero, combina l\u2019architettura monumentale del barocco napoletano con una vista mozzafiato a 360\u00B0 sull\u2019intero Golfo e sul Vesuvio. Al suo interno ospita la pi\u00F9 importante collezione al mondo di arte presepiale napoletana (tra cui il celebre <em>Presepe Cuciniello</em>)."},
+    {n:4, c:"--z1", name:"Museo del Tesoro di San Gennaro",
+     hours:"09:30 \u2013 18:30", always:true, price:"15,00 \u20AC", num:15,
+     note:"Audioguida inclusa nel biglietto",
+     why:"Situato accanto al Duomo, custodisce un patrimonio artistico unico al mondo accumulato in oltre sette secoli. La sua collezione di gioielli, argenti e calici preziosi (tra cui la celeberrima Collana di San Gennaro e la Mitra gemmata) ha un valore storico e artistico stimato superiore persino a quello dei Gioielli della Corona britannica."}
   ];
   var ALTRI=[
-    {n:15, c:"--z3", name:"Castel Sant’Elmo", a:["Intero","5,00 €"], b:["Ridotto","2,00 €"], price:5},
-    {n:10, c:"--z2", name:"Museo Civico di Castel Nuovo", abbr:"MASCHIO ANGIOINO", a:["Intero","6,00 €"], b:["Under 18","Gratuito"], price:6},
-    {n:16, c:"--z3", name:"Museo Duca di Martina", abbr:"VILLA FLORIDIANA", note:"Parco gratuito", a:["Intero","4,00 €"], b:["Ridotto","2,00 €"], price:4},
-    {n:17, c:"--z4", name:"Museo Pignatelli Cortes", a:["Intero","5,00 €"], b:["Ridotto","2,00 €"], price:5},
-    {n:2,  c:"--z1", name:"Museo MADRE", a:["Intero","8,00 €"], b:["Ridotto","4,00 €"], price:8}
+    {n:15, c:"--z3", name:"Castel Sant\u2019Elmo", price:"5,00 \u20AC", num:5},
+    {n:10, c:"--z2", name:"Museo Civico di Castel Nuovo", abbr:"MASCHIO ANGIOINO",
+     price:"6,00 \u20AC", num:6, note:"Ingresso gratuito per gli under 18"},
+    {n:16, c:"--z3", name:"Museo Duca di Martina", abbr:"VILLA FLORIDIANA",
+     price:"4,00 \u20AC", num:4, note:"Parco della Floridiana ad accesso gratuito"},
+    {n:17, c:"--z4", name:"Museo Pignatelli Cortes", price:"5,00 \u20AC", num:5},
+    {n:2, c:"--z1", name:"Museo MADRE", price:"8,00 \u20AC", num:8}
   ];
 
   function render(list, el){
     el.innerHTML=list.map(function(m){
-      var free=/gratuito/i.test(m.b[1]);
+      var tag = m.closed ? '<span class="tag shut">Chiuso il '+m.closed+'</span>'
+              : m.always ? '<span class="tag ok">Aperto tutti i giorni</span>' : '';
+      var when = (m.hours||tag)
+        ? '<span class="when">'+(m.hours?'<span class="hours">'+m.hours+'</span>':'')+tag+'</span>' : '';
       return '<li class="row" style="--c:var('+m.c+')">'+
         '<span class="pin">'+m.n+'</span>'+
         '<span class="name">'+m.name+(m.abbr?'<span class="abbr">'+m.abbr+'</span>':'')+'</span>'+
-        '<span class="fig"><span class="lab">'+m.a[0]+'</span><span class="val">'+m.a[1]+'</span></span>'+
-        '<span class="fig"><span class="lab">'+m.b[0]+'</span><span class="val'+(free?' free':'')+'">'+m.b[1]+'</span></span>'+
-        (m.note?'<span class="note">'+m.note+'</span>':'')+'</li>';
+        '<span class="price"><span class="lab">Intero</span><span class="val">'+m.price+'</span></span>'+
+        when+
+        (m.why?'<span class="why">'+m.why+'</span>':'')+
+        (m.note?'<span class="note">'+m.note+'</span>':'')+
+      '</li>';
     }).join("");
   }
   render(TOP5, document.getElementById("top5"));
   render(ALTRI, document.getElementById("altri"));
 
-  function sum(a){return a.reduce(function(t,m){return t+m.price;},0);}
+  function sum(a){return a.reduce(function(t,m){return t+m.num;},0);}
   function eur(n){return n.toFixed(2).replace(".",",")+' <span class="cur">€</span>';}
   var t5=sum(TOP5), tAll=sum(TOP5)+sum(ALTRI);
   document.getElementById("totals").innerHTML=
