@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siti Culturali e Musei di Napoli</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 20px;
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1a252f;
+    }
+    .table-container {
+      overflow-x: auto;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+    }
+    thead {
+      background-color: #1b365d;
+      color: #ffffff;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid #dee2e6;
+    }
+    th {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    tbody tr:hover {
+      background-color: #f1f5f9;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    .site-name {
+      font-weight: bold;
+      color: #0d6efd;
+    }
+    .price {
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .hours {
+      white-space: nowrap;
+    }
+
+    td.num, th.num { width: 46px; text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px; border-radius: 50%;
+      color: #fff; font-size: 13px; font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .badge.z1 { background: #B33A2B; }
+    .badge.z2 { background: #2F5A78; }
+    .badge.z3 { background: #57783A; }
+    .badge.z4 { background: #B5851A; }
+    .sitenav {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 12px; letter-spacing: .04em; margin-bottom: 18px;
+    }
+    .sitenav a { color: #5a6570; text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+    .sitenav a:hover { color: #1b365d; border-bottom-color: #ccd3da; }
+    .sitenav a[aria-current] { color: #1a252f; font-weight: 600; }
+    .sitenav .sep { color: #aab3bc; }
+    .legenda { max-width: 760px; margin: 0 auto 18px; font-size: 13px; color: #5a6570; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <nav class="sitenav">
+    <a href="./">Musei di Napoli</a>
+    <span class="sep">/</span>
+    <a href="mappa.html">Mappa</a>
+    <span class="sep">/</span>
+    <a href="gemini-table.html" aria-current="page">Tabella completa</a>
+  </nav>
+
+  <h1>Guida ai Musei e Complessi Monumentali di Napoli</h1>
+
+  <p class="legenda">Le sedi sono ordinate secondo la numerazione della <a href="mappa.html">mappa</a>: il numero colorato di ogni riga &egrave; lo stesso segnaposto che trovi sulla carta, con il colore del suo quartiere.</p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="num">N.</th>
+          <th>Nome</th>
+          <th>Indirizzo / Posizione</th>
+          <th>Orario Apertura e Chiusura</th>
+          <th>Prezzo di Ingresso</th>
+          <th>Descrizione</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num"><span class="badge z1">1</span></td>
+          <td class="site-name">Museo Archeologico Nazionale di Napoli (MANN)</td>
+          <td>Piazza Museo, 19</td>
+          <td class="hours">09:00 – 19:30<br><em>(Chiuso il martedì)</em></td>
+          <td class="price">20,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
+          <td>Uno dei musei archeologici più importanti al mondo. Custodisce le collezioni di affreschi, mosaici e sculture di Pompei ed Ercolano e la Collezione Farnese.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z1">2</span></td>
+          <td class="site-name">MADRE – Museo d’Arte Contemporanea Donnaregina</td>
+          <td>Via Luigi Settembrini, 79</td>
+          <td class="hours">10:00 – 19:30 (Lun, Mer-Sab)<br>10:00 – 20:00 (Dom)<br><em>(Chiuso il martedì)</em></td>
+          <td class="price">8,00 €<br><em>(Ridotto: 4,00 €)</em></td>
+          <td>Polo d'eccellenza per l'arte contemporanea a Napoli, ospitato nello storico Palazzo Donnaregina nel cuore del centro antico.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z1">3</span></td>
+          <td class="site-name">Museo Diocesano di Napoli (Complesso Donnaregina)</td>
+          <td>Largo Donnaregina</td>
+          <td class="hours">09:30 – 16:30 (Lun, Mer-Sab)<br>09:30 – 14:00 (Dom)<br><em>(Chiuso il martedì)</em></td>
+          <td class="price">7,00 €<br><em>(Ridotto: 5,00 €)</em></td>
+          <td>Complesso monumentale che unisce la Chiesa Nuova e la Chiesa Vecchia di Donnaregina con una vasta raccolta d'arte sacra.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z1">4</span></td>
+          <td class="site-name">Museo del Tesoro di San Gennaro</td>
+          <td>Via Duomo, 149</td>
+          <td class="hours">09:30 – 18:30<br><em>(Aperto tutti i giorni)</em></td>
+          <td class="price">15,00 €<br><em>(Audioguida inclusa; Ridotto: 11,00 €)</em></td>
+          <td>Adiacente al Duomo, custodisce un patrimonio inestimabile di gioielli, argenti e calici donati al patrono nei secoli, tra cui la famosissima Collana di San Gennaro.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z1">5</span></td>
+          <td class="site-name">Museo ARCA – Arte e Religiosa Contemporanea</td>
+          <td>Via Santa Maria la Nova, 44</td>
+          <td class="hours">09:30 – 15:00 (Lun-Ven)<br>09:30 – 14:00 (Sab-Dom)</td>
+          <td class="price">5,00 €<br><em>(Incluso nel biglietto di S. Maria la Nova)</em></td>
+          <td>Spazio espositivo situato all'interno del complesso di Santa Maria la Nova dedicato al dialogo tra spiritualità e linguaggi artistici contemporanei.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z1">6</span></td>
+          <td class="site-name">Museo Civico Gaetano Filangieri</td>
+          <td>Via Duomo, 288 (Palazzo Como)</td>
+          <td class="hours">10:00 – 16:00 (Mar-Sab)<br>10:00 – 14:00 (Dom)<br><em>(Chiuso il lunedì)</em></td>
+          <td class="price">5,00 €<br><em>(Ridotto: 3,00 €)</em></td>
+          <td>Raccolta d'arte eclettica creata dal principe Gaetano Filangieri, con dipinti, armature, sculture, porcellane e manoscritti rari.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z2">7</span></td>
+          <td class="site-name">Gallerie d’Italia – Napoli</td>
+          <td>Via Toledo, 177 (Palazzo Piacentini)</td>
+          <td class="hours">10:00 – 19:00 (Mar-Ven)<br>10:00 – 20:00 (Sab-Dom)<br><em>(Chiuso il lunedì)</em></td>
+          <td class="price">8,00 €<br><em>(Ridotto: 4,00 €; Gratuito under 26)</em></td>
+          <td>Polo museale di Intesa Sanpaolo in Via Toledo. Custodisce l'ultimo capolavoro di Caravaggio (<em>Martirio di sant'Orsola</em>) e collezioni d'arte dal '600 al '900.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z2">8</span></td>
+          <td class="site-name">Complesso Monumentale Sant’Anna dei Lombardi</td>
+          <td>Piazza Monteoliveto, 4</td>
+          <td class="hours">09:30 – 18:30 (Lun-Sab)<br>12:30 – 17:30 (Dom)</td>
+          <td class="price">6,00 €<br><em>(Ridotto: 4,00 €)</em></td>
+          <td>Celebre per la splendida Sagrestia del Vasari interamente affrescata e per il <em>Compianto sul Cristo Morto</em>, capolavoro scultoreo di Guido Mazzoni.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z2">9</span></td>
+          <td class="site-name">Complesso Monumentale di S. Maria La Nova</td>
+          <td>Piazza Santa Maria la Nova, 44</td>
+          <td class="hours">09:30 – 15:00 (Lun-Ven)<br>09:30 – 14:00 (Sab-Dom)</td>
+          <td class="price">5,00 €<br><em>(Ridotto: 3,00 €)</em></td>
+          <td>Storico complesso francescano del XIV secolo, famoso per i suoi chiostri, la chiesa barocca ricca di affreschi e la presunta tomba di Vlad III (Dracula).</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z2">10</span></td>
+          <td class="site-name">Museo Civico di Castel Nuovo (Maschio Angioino)</td>
+          <td>Via Vittorio Emanuele III</td>
+          <td class="hours">08:30 – 18:30 (Mar-Sab)<br><em>(Domenica orario ridotto/eventi)</em></td>
+          <td class="price">6,00 €<br><em>(Gratuito under 18)</em></td>
+          <td>Sede del Museo Civico nella storica fortezza medievale di Napoli, che include la Cappella Palatina, la Sala dei Baroni e la galleria di sculture e dipinti.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z2">11</span></td>
+          <td class="site-name">Palazzo Reale di Napoli</td>
+          <td>Piazza del Plebiscito, 1</td>
+          <td class="hours">09:00 – 20:00<br><em>(Chiuso il mercoledì)</em></td>
+          <td class="price">10,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
+          <td>Storica residenza dei viceré e dei re di Borbone affacciata su Piazza del Plebiscito, celebre per lo Scalone d'Onore e gli Appartamenti Storici.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z2">12</span></td>
+          <td class="site-name">Museo del Corallo Ascione</td>
+          <td>Galleria Umberto I, Angolo Via San Carlo</td>
+          <td class="hours">10:00 – 13:00 / 16:00 – 19:00 (Mar-Sab)<br><em>(Lunedì e Domenica su prenotazione)</em></td>
+          <td class="price">5,00 €</td>
+          <td>Esposizione collocata di fronte al Teatro San Carlo, dedicata all'antica tradizione artigianale della lavorazione del corallo e dei cammei.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z3">13</span></td>
+          <td class="site-name">Museo e Real Bosco di Capodimonte</td>
+          <td>Via Miano, 2 / Via Lucio Amelio</td>
+          <td class="hours">08:30 – 19:30<br><em>(Chiuso il mercoledì)</em></td>
+          <td class="price">15,00 €<br><em>(Ridotto UE 18-25: 2,00 €; Bosco gratuito)</em></td>
+          <td>Galleria Nazionale all'interno di una reggia borbonica. Conserva capolavori di Caravaggio, Tiziano, Raffaello e Parmigianino immersa in un immenso parco.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z3">14</span></td>
+          <td class="site-name">Certosa e Museo di San Martino</td>
+          <td>Largo San Martino, 5</td>
+          <td class="hours">08:30 – 18:30<br><em>(Chiuso il mercoledì)</em></td>
+          <td class="price">6,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
+          <td>Capolavoro del barocco napoletano sulla collina del Vomero. Ospita la più importante sezione al mondo di arte presepiale (tra cui il Presepe Cuciniello).</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z3">15</span></td>
+          <td class="site-name">Castel Sant’Elmo</td>
+          <td>Via Tito Angelini, 22</td>
+          <td class="hours">08:30 – 19:30<br><em>(Aperto tutti i giorni)</em></td>
+          <td class="price">5,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
+          <td>Imponente fortezza medievale a pianta stellare sulla collina del Vomero, famosa per la vista panoramica a 360° sulla città e il golfo. Ospita anche il Museo del '900.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z3">16</span></td>
+          <td class="site-name">Museo della Ceramica Duca di Martina (Villa Floridiana)</td>
+          <td>Via Aniello Falcone, 171 / Via Cimarosa</td>
+          <td class="hours">08:30 – 17:00<br><em>(Chiuso il martedì)</em></td>
+          <td class="price">4,00 €<br><em>(Ridotto UE 18-25: 2,00 €; Parco gratuito)</em></td>
+          <td>Situato nel parco della Floridiana al Vomero, conserva una delle maggiori collezioni italiane di arti decorative, porcellane europee ed orientali.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z4">17</span></td>
+          <td class="site-name">Museo Pignatelli Cortes</td>
+          <td>Riviera di Chiaia, 200</td>
+          <td class="hours">09:30 – 17:00<br><em>(Chiuso il martedì)</em></td>
+          <td class="price">5,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
+          <td>Elegante villa neoclassica del quartiere Chiaia, con appartamenti storici, parco monumentale e il Museo delle Carrozze.</td>
+        </tr>
+        <tr>
+          <td class="num"><span class="badge z4">18</span></td>
+          <td class="site-name">Fondazione PLART – Plastiche e Arte</td>
+          <td>Via Giuseppe Martucci, 48</td>
+          <td class="hours">10:00 – 13:00 / 15:00 – 18:00 (Mar-Ven)<br>10:00 – 13:00 (Sab)<br><em>(Chiuso Dom e Lun)</em></td>
+          <td class="price">8,00 €<br><em>(Ridotto: 5,00 €)</em></td>
+          <td>Centro di ricerca e museo unico nel suo genere, dedicato al design, alla storia e al restauro delle opere realizzate in plastica e polimeri.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

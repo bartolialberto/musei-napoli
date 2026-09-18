@@ -134,6 +134,24 @@ h1 em{font-style:italic;color:var(--z1)}
 .secnote{margin:14px 0 0;font-size:12px;line-height:1.55;color:var(--ink-faint);max-width:74ch}
 .secnote b{color:var(--ink-soft);font-weight:600}
 
+/* ---- link alla tabella completa ---- */
+.tablecard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:18px 22px;margin:0 0 30px;text-decoration:none;color:inherit;
+  box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
+.tablecard:hover{border-color:var(--ink-faint);transform:translateY(-1px)}
+.tablecard:focus-visible{outline:2px solid var(--z2);outline-offset:3px}
+.tablecard .kicker{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:700;margin:0 0 7px}
+.tablecard h2{margin:0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
+  font-weight:500;font-size:23px;line-height:1.15;letter-spacing:-.005em}
+.tablecard p{margin:8px 0 0;font-size:13.5px;color:var(--ink-soft);line-height:1.45;max-width:58ch}
+.tablecard .go{display:inline-block;margin-top:11px;font-size:12.5px;font-weight:600;
+  color:var(--z1);letter-spacing:.02em}
+.tablecard .pins{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.tablecard .pins i{width:17px;height:17px;border-radius:50%;background:var(--c);display:block}
+@media (max-width:560px){.tablecard{grid-template-columns:1fr}.tablecard .pins{display:none}}
+
 /* ---- totals ---- */
 .totals{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
 .tot{flex:1 1 200px;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:14px 16px}
@@ -161,10 +179,12 @@ footer a{color:var(--ink-soft)}
     <a href="./" aria-current="page">Musei di Napoli</a>
     <span class="sep">/</span>
     <a href="mappa.html">Mappa</a>
+    <span class="sep">/</span>
+    <a href="gemini-table.html">Tabella completa</a>
   </nav>
 
   <header class="masthead">
-    <p class="eyebrow">Biglietti &middot; prezzi raccolti a settembre 2026</p>
+    <p class="eyebrow">Biglietti &middot; 18 sedi &middot; prezzi raccolti a settembre 2026</p>
     <h1>Musei di <em>Napoli</em></h1>
     <p class="standfirst">I cinque musei principali della citt&agrave; — con orari, giorno di chiusura e il motivo per cui vale la pena entrarci — e cinque fra i civici e gli statali pi&ugrave; vicini. Il numero accanto a ciascun nome &egrave; quello che porta sulla mappa.</p>
   </header>
@@ -185,11 +205,16 @@ footer a{color:var(--ink-soft)}
     <p class="secnote"><b>Orari:</b> nei musei statali (MANN, Capodimonte, Palazzo Reale, San Martino) l’ultimo ingresso è consentito fino a un’ora prima della chiusura. <b>Riduzioni:</b> negli stessi musei il ridotto UE 18–25 costa 2,00 €; al Tesoro di San Gennaro il ridotto è di 11,00 €.</p>
   </section>
 
-  <section class="sec">
-    <div class="sechead"><h2>Altri Musei Statali e Comunali</h2><span class="cnt">5 sedi</span></div>
-    <ul class="prices" id="altri"></ul>
-    <p class="secnote">Per queste sedi gli orari non sono riportati: cambiano spesso, conviene verificarli sul sito ufficiale. Il ridotto è di 2,00 € quasi ovunque, 4,00 € al MADRE.</p>
-  </section>
+
+  <a class="tablecard" href="gemini-table.html">
+    <div>
+      <p class="kicker">Tabella completa</p>
+      <h2>Tutte e diciotto le sedi, riga per riga</h2>
+      <p>Indirizzo, orari giorno per giorno, prezzo intero e ridotto e una descrizione per ciascun museo, nello stesso ordine dei segnaposto della mappa.</p>
+      <span class="go">Apri la tabella &rarr;</span>
+    </div>
+    <span class="pins" aria-hidden="true"><i style="--c:var(--z1)"></i><i style="--c:var(--z2)"></i><i style="--c:var(--z3)"></i><i style="--c:var(--z4)"></i></span>
+  </a>
 
   <div class="totals" id="totals"></div>
 
@@ -197,7 +222,7 @@ footer a{color:var(--ink-soft)}
 
   <footer>
     <p>Prezzi indicativi, raccolti a settembre 2026: tariffe, riduzioni e giorni di chiusura cambiano spesso, e le condizioni del biglietto ridotto variano da sede a sede. Verificate sul sito ufficiale di ciascun museo prima di andare.</p>
-    <p>I totali sono la semplice somma dei prezzi interi e non tengono conto di riduzioni, biglietti cumulativi o giornate a ingresso gratuito.</p>
+    <p>Il totale &egrave; la semplice somma dei prezzi interi dei cinque musei principali e non tiene conto di riduzioni, biglietti cumulativi o giornate a ingresso gratuito.</p>
   </footer>
 </div>
 <script>
@@ -223,15 +248,6 @@ footer a{color:var(--ink-soft)}
      note:"Audioguida inclusa nel biglietto",
      why:"Situato accanto al Duomo, custodisce un patrimonio artistico unico al mondo accumulato in oltre sette secoli. La sua collezione di gioielli, argenti e calici preziosi (tra cui la celeberrima Collana di San Gennaro e la Mitra gemmata) ha un valore storico e artistico stimato superiore persino a quello dei Gioielli della Corona britannica."}
   ];
-  var ALTRI=[
-    {n:15, c:"--z3", name:"Castel Sant\u2019Elmo", price:"5,00 \u20AC", num:5},
-    {n:10, c:"--z2", name:"Museo Civico di Castel Nuovo", abbr:"MASCHIO ANGIOINO",
-     price:"6,00 \u20AC", num:6, note:"Ingresso gratuito per gli under 18"},
-    {n:16, c:"--z3", name:"Museo Duca di Martina", abbr:"VILLA FLORIDIANA",
-     price:"4,00 \u20AC", num:4, note:"Parco della Floridiana ad accesso gratuito"},
-    {n:17, c:"--z4", name:"Museo Pignatelli Cortes", price:"5,00 \u20AC", num:5},
-    {n:2, c:"--z1", name:"Museo MADRE", price:"8,00 \u20AC", num:8}
-  ];
 
   function render(list, el){
     el.innerHTML=list.map(function(m){
@@ -250,14 +266,13 @@ footer a{color:var(--ink-soft)}
     }).join("");
   }
   render(TOP5, document.getElementById("top5"));
-  render(ALTRI, document.getElementById("altri"));
 
   function sum(a){return a.reduce(function(t,m){return t+m.num;},0);}
   function eur(n){return n.toFixed(2).replace(".",",")+' <span class="cur">€</span>';}
-  var t5=sum(TOP5), tAll=sum(TOP5)+sum(ALTRI);
+  var t5=sum(TOP5);
   document.getElementById("totals").innerHTML=
     '<div class="tot"><p class="lab">I cinque principali</p><p class="num">'+eur(t5)+'</p><p class="sub">somma dei biglietti interi</p></div>'+
-    '<div class="tot"><p class="lab">Tutte e dieci le sedi</p><p class="num">'+eur(tAll)+'</p><p class="sub">somma dei biglietti interi</p></div>';
+    '<div class="tot"><p class="lab">Diciotto sedi in tutto</p><p class="num">18</p><p class="sub">nella tabella completa e sulla mappa</p></div>';
 })();
 </script>
 </body>
