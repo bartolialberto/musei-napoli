@@ -1,90 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siti Culturali e Musei di Napoli</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      margin: 20px;
-      background-color: #f8f9fa;
-      color: #212529;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1a252f;
-    }
-    .table-container {
-      overflow-x: auto;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      background-color: #ffffff;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 800px;
-    }
-    thead {
-      background-color: #1b365d;
-      color: #ffffff;
-    }
-    th, td {
-      padding: 12px 16px;
-      text-align: left;
-      vertical-align: top;
-      border-bottom: 1px solid #dee2e6;
-    }
-    th {
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    tbody tr:hover {
-      background-color: #f1f5f9;
-    }
-    tbody tr:nth-child(even) {
-      background-color: #fafafa;
-    }
-    .site-name {
-      font-weight: bold;
-      color: #0d6efd;
-    }
-    .price {
-      white-space: nowrap;
-      font-weight: 500;
-    }
-    .hours {
-      white-space: nowrap;
-    }
-    td:nth-child(3) { min-width: 300px; }
-    td:nth-child(6), th:nth-child(6) { min-width: 150px; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tabella completa dei musei di Napoli</title>
+<meta name="description" content="Le diciotto sedi museali di Napoli in una tabella: descrizione, orari, prezzi e indirizzi, nell'ordine dei segnaposto della mappa.">
+<meta property="og:title" content="Tabella completa dei musei di Napoli">
+<meta property="og:description" content="Le diciotto sedi museali di Napoli in una tabella: descrizione, orari, prezzi e indirizzi.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&display=swap">
+<style>
+:root{
+  color-scheme: light dark;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --ground:#EFEFE9; --surface:#FBFAF6; --surface-2:#F4F3EC;
+  --ink:#22241F; --ink-soft:#6B6E62; --ink-faint:#93968A;
+  --rule:#D6D4C6; --rule-soft:#E3E1D5;
+  --z1:#B33A2B; --z2:#2F5A78; --z3:#57783A; --z4:#B5851A;
+  --marker-ring:#FBFAF6;
+  --shadow:0 1px 2px rgba(34,36,31,.07), 0 6px 18px rgba(34,36,31,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+  --ground:#15171A; --surface:#1C1F21; --surface-2:#222628;
+  --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
+  --rule:#34383A; --rule-soft:#282C2E;
+  --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
+  --marker-ring:#15171A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15171A; --surface:#1C1F21; --surface-2:#222628;
+  --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
+  --rule:#34383A; --rule-soft:#282C2E;
+  --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
+  --marker-ring:#15171A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+}
 
-    td.num, th.num { width: 46px; text-align: center; }
-    .badge {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 26px; height: 26px; border-radius: 50%;
-      color: #fff; font-size: 13px; font-weight: 700;
-      font-variant-numeric: tabular-nums;
-    }
-    .badge.z1 { background: #B33A2B; }
-    .badge.z2 { background: #2F5A78; }
-    .badge.z3 { background: #57783A; }
-    .badge.z4 { background: #B5851A; }
-    .sitenav {
-      display: flex; align-items: center; gap: 9px;
-      font-size: 12px; letter-spacing: .04em; margin-bottom: 18px;
-    }
-    .sitenav a { color: #5a6570; text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
-    .sitenav a:hover { color: #1b365d; border-bottom-color: #ccd3da; }
-    .sitenav a[aria-current] { color: #1a252f; font-weight: 600; }
-    .sitenav .sep { color: #aab3bc; }
-    .legenda { max-width: 760px; margin: 0 auto 18px; font-size: 13px; color: #5a6570; text-align: center; }
-  </style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:20px;padding-block:24px 56px}
+
+/* ---- nav ---- */
+.sitenav{display:flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.04em;margin-bottom:20px}
+.sitenav a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.sitenav a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.sitenav a[aria-current]{color:var(--ink);font-weight:600}
+.sitenav a:focus-visible{outline:2px solid var(--z2);outline-offset:3px;border-radius:2px}
+.sitenav .sep{color:var(--ink-faint)}
+
+/* ---- masthead ---- */
+.masthead{border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:22px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:0 0 10px}
+h1{font-family:'Bodoni Moda',Didot,'Times New Roman',serif;font-weight:600;
+  font-size:clamp(34px,6.5vw,54px);line-height:1.02;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--z1)}
+.standfirst{margin:12px 0 0;max-width:64ch;color:var(--ink-soft)}
+.standfirst a{color:var(--ink);text-underline-offset:3px}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 0;padding:0;list-style:none}
+.legend li{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--rule);
+  background:var(--surface);border-radius:999px;padding:4px 12px 4px 9px;font-size:12px;color:var(--ink-soft)}
+.legend i{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+
+/* ---- tabella ---- */
+.tablebox{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;
+  background:var(--surface);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;min-width:1000px}
+thead th{position:sticky;top:0;background:var(--surface-2);text-align:left;
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-faint);padding:12px 16px;border-bottom:2px solid var(--ink);white-space:nowrap}
+td{padding:16px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+.badge{display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;background:var(--c);color:var(--marker-ring);
+  font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.badge.z1{--c:var(--z1)} .badge.z2{--c:var(--z2)} .badge.z3{--c:var(--z3)} .badge.z4{--c:var(--z4)}
+.c-num{width:56px;text-align:center;padding-inline:10px}
+.c-name{width:17%;min-width:170px;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
+  font-weight:500;font-size:17px;line-height:1.22}
+.c-desc{width:36%;min-width:280px;font-size:13px;color:var(--ink-soft);line-height:1.5}
+.c-desc em{font-style:italic;color:var(--ink)}
+.c-when{width:15%;min-width:150px;font-size:12.5px;color:var(--ink-soft)}
+.c-when .hrs{display:block;font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:.01em}
+.c-price{width:13%;min-width:130px;font-size:15.5px;font-weight:600;
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.c-addr{width:15%;min-width:140px;font-size:12px;color:var(--ink-faint)}
+.c-when em,.c-price em{display:block;font-style:normal;font-weight:400;
+  font-size:11.5px;letter-spacing:0;color:var(--ink-faint);margin-top:4px}
+.tag{display:inline-block;margin-top:6px;font-size:10px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;border:1px solid;border-radius:3px;padding:2px 7px;line-height:1.5}
+.tag.shut{color:var(--z1);border-color:var(--z1)}
+.tag.ok{color:var(--z3);border-color:var(--z3)}
+
+/* ---- sotto gli 860px la tabella diventa un elenco di schede ---- */
+@media (max-width:860px){
+  .tablebox{overflow-x:visible;border:0;border-radius:0;background:transparent;box-shadow:none}
+  table{min-width:0}
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  tbody tr{display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 12px;
+    background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+    padding:15px 16px;margin-bottom:12px;box-shadow:var(--shadow)}
+  tbody tr:hover{background:var(--surface)}
+  td{display:block;width:auto!important;min-width:0!important;padding:0;border:0}
+  .c-num{grid-row:1/span 5;text-align:left;padding:0;margin-top:2px}
+  .c-name{font-size:18.5px}
+  .c-desc,.c-when,.c-price,.c-addr{margin-top:11px}
+  .c-desc::before,.c-when::before,.c-price::before,.c-addr::before{
+    content:attr(data-l);display:block;font-family:'Archivo',sans-serif;
+    font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin-bottom:3px}
+}
+
+footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--ink-faint);max-width:78ch}
+footer p{margin:0 0 7px}
+footer a{color:var(--ink-soft)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
 </head>
 <body>
-
+<div class="wrap">
   <nav class="sitenav">
     <a href="./">Musei di Napoli</a>
     <span class="sep">/</span>
@@ -93,170 +138,184 @@
     <a href="tabella.html" aria-current="page">Tabella completa</a>
   </nav>
 
-  <h1>Guida ai Musei e Complessi Monumentali di Napoli</h1>
+  <header class="masthead">
+    <p class="eyebrow">Tabella completa &middot; 18 sedi</p>
+    <h1>Musei di <em>Napoli</em></h1>
+    <p class="standfirst">Tutte le sedi in un colpo d&rsquo;occhio, nell&rsquo;ordine dei segnaposto della <a href="mappa.html">mappa</a>: il numero colorato di ogni riga &egrave; lo stesso che trovi sulla carta, con il colore del suo quartiere.</p>
+    <ul class="legend">
+      <li style="--c:var(--z1)"><i></i>1&ndash;5 &nbsp;Centro antico</li>
+      <li style="--c:var(--z2)"><i></i>6&ndash;12 &nbsp;Toledo, Monteoliveto e il porto</li>
+      <li style="--c:var(--z3)"><i></i>13&ndash;16 &nbsp;Le colline</li>
+      <li style="--c:var(--z4)"><i></i>17&ndash;18 &nbsp;Chiaia</li>
+    </ul>
+  </header>
 
-  <p class="legenda">Le sedi sono ordinate secondo la numerazione della <a href="mappa.html">mappa</a>: il numero colorato di ogni riga &egrave; lo stesso segnaposto che trovi sulla carta, con il colore del suo quartiere.</p>
-
-  <div class="table-container">
+  <div class="tablebox">
     <table>
       <thead>
         <tr>
-          <th class="num">N.</th>
+          <th class="c-num">N.</th>
           <th>Nome</th>
           <th>Descrizione</th>
-          <th>Orario Apertura e Chiusura</th>
-          <th>Prezzo di Ingresso</th>
-          <th>Indirizzo / Posizione</th>
+          <th>Orario</th>
+          <th>Prezzo</th>
+          <th>Indirizzo</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="num"><span class="badge z1">1</span></td>
-          <td class="site-name">Museo Archeologico Nazionale di Napoli (MANN)</td>
-          <td>Uno dei musei archeologici più importanti al mondo. Custodisce le collezioni di affreschi, mosaici e sculture di Pompei ed Ercolano e la Collezione Farnese.</td>
-          <td class="hours">09:00 – 19:30<br><em>(Chiuso il martedì)</em></td>
-          <td class="price">20,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
-          <td>Piazza Museo, 19</td>
+          <td class="c-num"><span class="badge z1">1</span></td>
+          <td class="c-name" data-l="Museo">Museo Archeologico Nazionale di Napoli (MANN)</td>
+          <td class="c-desc" data-l="Descrizione">Uno dei musei archeologici più importanti al mondo. Custodisce le collezioni di affreschi, mosaici e sculture di Pompei ed Ercolano e la Collezione Farnese.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:00 – 19:30</span><span class="tag shut">Chiuso il martedì</span></td>
+          <td class="c-price" data-l="Prezzo">20,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Piazza Museo, 19</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z1">2</span></td>
-          <td class="site-name">MADRE – Museo d’Arte Contemporanea Donnaregina</td>
-          <td>Polo d'eccellenza per l'arte contemporanea a Napoli, ospitato nello storico Palazzo Donnaregina nel cuore del centro antico.</td>
-          <td class="hours">10:00 – 19:30 (Lun, Mer-Sab)<br>10:00 – 20:00 (Dom)<br><em>(Chiuso il martedì)</em></td>
-          <td class="price">8,00 €<br><em>(Ridotto: 4,00 €)</em></td>
-          <td>Via Luigi Settembrini, 79</td>
+          <td class="c-num"><span class="badge z1">2</span></td>
+          <td class="c-name" data-l="Museo">MADRE – Museo d’Arte Contemporanea Donnaregina</td>
+          <td class="c-desc" data-l="Descrizione">Polo d'eccellenza per l'arte contemporanea a Napoli, ospitato nello storico Palazzo Donnaregina nel cuore del centro antico.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 19:30 (Lun, Mer-Sab)<br>10:00 – 20:00 (Dom)</span><span class="tag shut">Chiuso il martedì</span></td>
+          <td class="c-price" data-l="Prezzo">8,00 €<em>Ridotto: 4,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Luigi Settembrini, 79</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z1">3</span></td>
-          <td class="site-name">Museo Diocesano di Napoli (Complesso Donnaregina)</td>
-          <td>Complesso monumentale che unisce la Chiesa Nuova e la Chiesa Vecchia di Donnaregina con una vasta raccolta d'arte sacra.</td>
-          <td class="hours">09:30 – 16:30 (Lun, Mer-Sab)<br>09:30 – 14:00 (Dom)<br><em>(Chiuso il martedì)</em></td>
-          <td class="price">7,00 €<br><em>(Ridotto: 5,00 €)</em></td>
-          <td>Largo Donnaregina</td>
+          <td class="c-num"><span class="badge z1">3</span></td>
+          <td class="c-name" data-l="Museo">Museo Diocesano di Napoli (Complesso Donnaregina)</td>
+          <td class="c-desc" data-l="Descrizione">Complesso monumentale che unisce la Chiesa Nuova e la Chiesa Vecchia di Donnaregina con una vasta raccolta d'arte sacra.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 16:30 (Lun, Mer-Sab)<br>09:30 – 14:00 (Dom)</span><span class="tag shut">Chiuso il martedì</span></td>
+          <td class="c-price" data-l="Prezzo">7,00 €<em>Ridotto: 5,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Largo Donnaregina</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z1">4</span></td>
-          <td class="site-name">Museo del Tesoro di San Gennaro</td>
-          <td>Adiacente al Duomo, custodisce un patrimonio inestimabile di gioielli, argenti e calici donati al patrono nei secoli, tra cui la famosissima Collana di San Gennaro.</td>
-          <td class="hours">09:30 – 18:30<br><em>(Aperto tutti i giorni)</em></td>
-          <td class="price">15,00 €<br><em>(Audioguida inclusa; Ridotto: 11,00 €)</em></td>
-          <td>Via Duomo, 149</td>
+          <td class="c-num"><span class="badge z1">4</span></td>
+          <td class="c-name" data-l="Museo">Museo del Tesoro di San Gennaro</td>
+          <td class="c-desc" data-l="Descrizione">Adiacente al Duomo, custodisce un patrimonio inestimabile di gioielli, argenti e calici donati al patrono nei secoli, tra cui la famosissima Collana di San Gennaro.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 18:30</span><span class="tag ok">Aperto tutti i giorni</span></td>
+          <td class="c-price" data-l="Prezzo">15,00 €<em>Audioguida inclusa; Ridotto: 11,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Duomo, 149</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z1">5</span></td>
-          <td class="site-name">Museo Civico Gaetano Filangieri</td>
-          <td>Raccolta d'arte eclettica creata dal principe Gaetano Filangieri, con dipinti, armature, sculture, porcellane e manoscritti rari.</td>
-          <td class="hours">10:00 – 16:00 (Mar-Sab)<br>10:00 – 14:00 (Dom)<br><em>(Chiuso il lunedì)</em></td>
-          <td class="price">5,00 €<br><em>(Ridotto: 3,00 €)</em></td>
-          <td>Via Duomo, 288 (Palazzo Como)</td>
+          <td class="c-num"><span class="badge z1">5</span></td>
+          <td class="c-name" data-l="Museo">Museo Civico Gaetano Filangieri</td>
+          <td class="c-desc" data-l="Descrizione">Raccolta d'arte eclettica creata dal principe Gaetano Filangieri, con dipinti, armature, sculture, porcellane e manoscritti rari.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 16:00 (Mar-Sab)<br>10:00 – 14:00 (Dom)</span><span class="tag shut">Chiuso il lunedì</span></td>
+          <td class="c-price" data-l="Prezzo">5,00 €<em>Ridotto: 3,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Duomo, 288 (Palazzo Como)</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z2">6</span></td>
-          <td class="site-name">Gallerie d’Italia – Napoli</td>
-          <td>Polo museale di Intesa Sanpaolo in Via Toledo. Custodisce l'ultimo capolavoro di Caravaggio (<em>Martirio di sant'Orsola</em>) e collezioni d'arte dal '600 al '900.</td>
-          <td class="hours">10:00 – 19:00 (Mar-Ven)<br>10:00 – 20:00 (Sab-Dom)<br><em>(Chiuso il lunedì)</em></td>
-          <td class="price">8,00 €<br><em>(Ridotto: 4,00 €; Gratuito under 26)</em></td>
-          <td>Via Toledo, 177 (Palazzo Piacentini)</td>
+          <td class="c-num"><span class="badge z2">6</span></td>
+          <td class="c-name" data-l="Museo">Gallerie d’Italia – Napoli</td>
+          <td class="c-desc" data-l="Descrizione">Polo museale di Intesa Sanpaolo in Via Toledo. Custodisce l'ultimo capolavoro di Caravaggio (<em>Martirio di sant'Orsola</em>) e collezioni d'arte dal '600 al '900.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 19:00 (Mar-Ven)<br>10:00 – 20:00 (Sab-Dom)</span><span class="tag shut">Chiuso il lunedì</span></td>
+          <td class="c-price" data-l="Prezzo">8,00 €<em>Ridotto: 4,00 €; Gratuito under 26</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Toledo, 177 (Palazzo Piacentini)</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z2">7</span></td>
-          <td class="site-name">Complesso Monumentale Sant’Anna dei Lombardi</td>
-          <td>Celebre per la splendida Sagrestia del Vasari interamente affrescata e per il <em>Compianto sul Cristo Morto</em>, capolavoro scultoreo di Guido Mazzoni.</td>
-          <td class="hours">09:30 – 18:30 (Lun-Sab)<br>12:30 – 17:30 (Dom)</td>
-          <td class="price">6,00 €<br><em>(Ridotto: 4,00 €)</em></td>
-          <td>Piazza Monteoliveto, 4</td>
+          <td class="c-num"><span class="badge z2">7</span></td>
+          <td class="c-name" data-l="Museo">Complesso Monumentale Sant’Anna dei Lombardi</td>
+          <td class="c-desc" data-l="Descrizione">Celebre per la splendida Sagrestia del Vasari interamente affrescata e per il <em>Compianto sul Cristo Morto</em>, capolavoro scultoreo di Guido Mazzoni.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 18:30 (Lun-Sab)<br>12:30 – 17:30 (Dom)</span></td>
+          <td class="c-price" data-l="Prezzo">6,00 €<em>Ridotto: 4,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Piazza Monteoliveto, 4</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z2">8</span></td>
-          <td class="site-name">Complesso Monumentale di S. Maria La Nova</td>
-          <td>Storico complesso francescano del XIV secolo, famoso per i suoi chiostri, la chiesa barocca ricca di affreschi e la presunta tomba di Vlad III (Dracula).</td>
-          <td class="hours">09:30 – 15:00 (Lun-Ven)<br>09:30 – 14:00 (Sab-Dom)</td>
-          <td class="price">5,00 €<br><em>(Ridotto: 3,00 €)</em></td>
-          <td>Piazza Santa Maria la Nova, 44</td>
+          <td class="c-num"><span class="badge z2">8</span></td>
+          <td class="c-name" data-l="Museo">Complesso Monumentale di S. Maria La Nova</td>
+          <td class="c-desc" data-l="Descrizione">Storico complesso francescano del XIV secolo, famoso per i suoi chiostri, la chiesa barocca ricca di affreschi e la presunta tomba di Vlad III (Dracula).</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 15:00 (Lun-Ven)<br>09:30 – 14:00 (Sab-Dom)</span></td>
+          <td class="c-price" data-l="Prezzo">5,00 €<em>Ridotto: 3,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Piazza Santa Maria la Nova, 44</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z2">9</span></td>
-          <td class="site-name">Museo ARCA – Arte e Religiosa Contemporanea</td>
-          <td>Spazio espositivo situato all'interno del complesso di Santa Maria la Nova dedicato al dialogo tra spiritualità e linguaggi artistici contemporanei.</td>
-          <td class="hours">09:30 – 15:00 (Lun-Ven)<br>09:30 – 14:00 (Sab-Dom)</td>
-          <td class="price">5,00 €<br><em>(Incluso nel biglietto di S. Maria la Nova)</em></td>
-          <td>Piazza Santa Maria la Nova, 44</td>
+          <td class="c-num"><span class="badge z2">9</span></td>
+          <td class="c-name" data-l="Museo">Museo ARCA – Arte e Religiosa Contemporanea</td>
+          <td class="c-desc" data-l="Descrizione">Spazio espositivo situato all'interno del complesso di Santa Maria la Nova dedicato al dialogo tra spiritualità e linguaggi artistici contemporanei.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 15:00 (Lun-Ven)<br>09:30 – 14:00 (Sab-Dom)</span></td>
+          <td class="c-price" data-l="Prezzo">5,00 €<em>Incluso nel biglietto di S. Maria la Nova</em></td>
+          <td class="c-addr" data-l="Indirizzo">Piazza Santa Maria la Nova, 44</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z2">10</span></td>
-          <td class="site-name">Museo Civico di Castel Nuovo (Maschio Angioino)</td>
-          <td>Sede del Museo Civico nella storica fortezza medievale di Napoli, che include la Cappella Palatina, la Sala dei Baroni e la galleria di sculture e dipinti.</td>
-          <td class="hours">08:30 – 18:30 (Mar-Sab)<br><em>(Domenica orario ridotto/eventi)</em></td>
-          <td class="price">6,00 €<br><em>(Gratuito under 18)</em></td>
-          <td>Via Vittorio Emanuele III</td>
+          <td class="c-num"><span class="badge z2">10</span></td>
+          <td class="c-name" data-l="Museo">Museo Civico di Castel Nuovo (Maschio Angioino)</td>
+          <td class="c-desc" data-l="Descrizione">Sede del Museo Civico nella storica fortezza medievale di Napoli, che include la Cappella Palatina, la Sala dei Baroni e la galleria di sculture e dipinti.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 18:30 (Mar-Sab)</span><em>Domenica orario ridotto/eventi</em></td>
+          <td class="c-price" data-l="Prezzo">6,00 €<em>Gratuito under 18</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Vittorio Emanuele III</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z2">11</span></td>
-          <td class="site-name">Palazzo Reale di Napoli</td>
-          <td>Storica residenza dei viceré e dei re di Borbone affacciata su Piazza del Plebiscito, celebre per lo Scalone d'Onore e gli Appartamenti Storici.</td>
-          <td class="hours">09:00 – 20:00<br><em>(Chiuso il mercoledì)</em></td>
-          <td class="price">10,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
-          <td>Piazza del Plebiscito, 1</td>
+          <td class="c-num"><span class="badge z2">11</span></td>
+          <td class="c-name" data-l="Museo">Palazzo Reale di Napoli</td>
+          <td class="c-desc" data-l="Descrizione">Storica residenza dei viceré e dei re di Borbone affacciata su Piazza del Plebiscito, celebre per lo Scalone d'Onore e gli Appartamenti Storici.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:00 – 20:00</span><span class="tag shut">Chiuso il mercoledì</span></td>
+          <td class="c-price" data-l="Prezzo">10,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Piazza del Plebiscito, 1</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z2">12</span></td>
-          <td class="site-name">Museo del Corallo Ascione</td>
-          <td>Esposizione collocata di fronte al Teatro San Carlo, dedicata all'antica tradizione artigianale della lavorazione del corallo e dei cammei.</td>
-          <td class="hours">10:00 – 13:00 / 16:00 – 19:00 (Mar-Sab)<br><em>(Lunedì e Domenica su prenotazione)</em></td>
-          <td class="price">5,00 €</td>
-          <td>Galleria Umberto I, Angolo Via San Carlo</td>
+          <td class="c-num"><span class="badge z2">12</span></td>
+          <td class="c-name" data-l="Museo">Museo del Corallo Ascione</td>
+          <td class="c-desc" data-l="Descrizione">Esposizione collocata di fronte al Teatro San Carlo, dedicata all'antica tradizione artigianale della lavorazione del corallo e dei cammei.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 13:00 / 16:00 – 19:00 (Mar-Sab)</span><em>Lunedì e Domenica su prenotazione</em></td>
+          <td class="c-price" data-l="Prezzo">5,00 €</td>
+          <td class="c-addr" data-l="Indirizzo">Galleria Umberto I, Angolo Via San Carlo</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z3">13</span></td>
-          <td class="site-name">Museo e Real Bosco di Capodimonte</td>
-          <td>Galleria Nazionale all'interno di una reggia borbonica. Conserva capolavori di Caravaggio, Tiziano, Raffaello e Parmigianino immersa in un immenso parco.</td>
-          <td class="hours">08:30 – 19:30<br><em>(Chiuso il mercoledì)</em></td>
-          <td class="price">15,00 €<br><em>(Ridotto UE 18-25: 2,00 €; Bosco gratuito)</em></td>
-          <td>Via Miano, 2 / Via Lucio Amelio</td>
+          <td class="c-num"><span class="badge z3">13</span></td>
+          <td class="c-name" data-l="Museo">Museo e Real Bosco di Capodimonte</td>
+          <td class="c-desc" data-l="Descrizione">Galleria Nazionale all'interno di una reggia borbonica. Conserva capolavori di Caravaggio, Tiziano, Raffaello e Parmigianino immersa in un immenso parco.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 19:30</span><span class="tag shut">Chiuso il mercoledì</span></td>
+          <td class="c-price" data-l="Prezzo">15,00 €<em>Ridotto UE 18-25: 2,00 €; Bosco gratuito</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Miano, 2 / Via Lucio Amelio</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z3">14</span></td>
-          <td class="site-name">Certosa e Museo di San Martino</td>
-          <td>Capolavoro del barocco napoletano sulla collina del Vomero. Ospita la più importante sezione al mondo di arte presepiale (tra cui il Presepe Cuciniello).</td>
-          <td class="hours">08:30 – 18:30<br><em>(Chiuso il mercoledì)</em></td>
-          <td class="price">6,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
-          <td>Largo San Martino, 5</td>
+          <td class="c-num"><span class="badge z3">14</span></td>
+          <td class="c-name" data-l="Museo">Certosa e Museo di San Martino</td>
+          <td class="c-desc" data-l="Descrizione">Capolavoro del barocco napoletano sulla collina del Vomero. Ospita la più importante sezione al mondo di arte presepiale (tra cui il Presepe Cuciniello).</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 18:30</span><span class="tag shut">Chiuso il mercoledì</span></td>
+          <td class="c-price" data-l="Prezzo">6,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Largo San Martino, 5</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z3">15</span></td>
-          <td class="site-name">Castel Sant’Elmo</td>
-          <td>Imponente fortezza medievale a pianta stellare sulla collina del Vomero, famosa per la vista panoramica a 360° sulla città e il golfo. Ospita anche il Museo del '900.</td>
-          <td class="hours">08:30 – 19:30<br><em>(Aperto tutti i giorni)</em></td>
-          <td class="price">5,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
-          <td>Via Tito Angelini, 22</td>
+          <td class="c-num"><span class="badge z3">15</span></td>
+          <td class="c-name" data-l="Museo">Castel Sant’Elmo</td>
+          <td class="c-desc" data-l="Descrizione">Imponente fortezza medievale a pianta stellare sulla collina del Vomero, famosa per la vista panoramica a 360° sulla città e il golfo. Ospita anche il Museo del '900.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 19:30</span><span class="tag ok">Aperto tutti i giorni</span></td>
+          <td class="c-price" data-l="Prezzo">5,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Tito Angelini, 22</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z3">16</span></td>
-          <td class="site-name">Museo della Ceramica Duca di Martina (Villa Floridiana)</td>
-          <td>Situato nel parco della Floridiana al Vomero, conserva una delle maggiori collezioni italiane di arti decorative, porcellane europee ed orientali.</td>
-          <td class="hours">08:30 – 17:00<br><em>(Chiuso il martedì)</em></td>
-          <td class="price">4,00 €<br><em>(Ridotto UE 18-25: 2,00 €; Parco gratuito)</em></td>
-          <td>Via Aniello Falcone, 171 / Via Cimarosa</td>
+          <td class="c-num"><span class="badge z3">16</span></td>
+          <td class="c-name" data-l="Museo">Museo della Ceramica Duca di Martina (Villa Floridiana)</td>
+          <td class="c-desc" data-l="Descrizione">Situato nel parco della Floridiana al Vomero, conserva una delle maggiori collezioni italiane di arti decorative, porcellane europee ed orientali.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 17:00</span><span class="tag shut">Chiuso il martedì</span></td>
+          <td class="c-price" data-l="Prezzo">4,00 €<em>Ridotto UE 18-25: 2,00 €; Parco gratuito</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Aniello Falcone, 171 / Via Cimarosa</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z4">17</span></td>
-          <td class="site-name">Museo Pignatelli Cortes</td>
-          <td>Elegante villa neoclassica del quartiere Chiaia, con appartamenti storici, parco monumentale e il Museo delle Carrozze.</td>
-          <td class="hours">09:30 – 17:00<br><em>(Chiuso il martedì)</em></td>
-          <td class="price">5,00 €<br><em>(Ridotto UE 18-25: 2,00 €)</em></td>
-          <td>Riviera di Chiaia, 200</td>
+          <td class="c-num"><span class="badge z4">17</span></td>
+          <td class="c-name" data-l="Museo">Museo Pignatelli Cortes</td>
+          <td class="c-desc" data-l="Descrizione">Elegante villa neoclassica del quartiere Chiaia, con appartamenti storici, parco monumentale e il Museo delle Carrozze.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 17:00</span><span class="tag shut">Chiuso il martedì</span></td>
+          <td class="c-price" data-l="Prezzo">5,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Riviera di Chiaia, 200</td>
         </tr>
         <tr>
-          <td class="num"><span class="badge z4">18</span></td>
-          <td class="site-name">Fondazione PLART – Plastiche e Arte</td>
-          <td>Centro di ricerca e museo unico nel suo genere, dedicato al design, alla storia e al restauro delle opere realizzate in plastica e polimeri.</td>
-          <td class="hours">10:00 – 13:00 / 15:00 – 18:00 (Mar-Ven)<br>10:00 – 13:00 (Sab)<br><em>(Chiuso Dom e Lun)</em></td>
-          <td class="price">8,00 €<br><em>(Ridotto: 5,00 €)</em></td>
-          <td>Via Giuseppe Martucci, 48</td>
+          <td class="c-num"><span class="badge z4">18</span></td>
+          <td class="c-name" data-l="Museo">Fondazione PLART – Plastiche e Arte</td>
+          <td class="c-desc" data-l="Descrizione">Centro di ricerca e museo unico nel suo genere, dedicato al design, alla storia e al restauro delle opere realizzate in plastica e polimeri.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 13:00 / 15:00 – 18:00 (Mar-Ven)<br>10:00 – 13:00 (Sab)</span><span class="tag shut">Chiuso Dom e Lun</span></td>
+          <td class="c-price" data-l="Prezzo">8,00 €<em>Ridotto: 5,00 €</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Giuseppe Martucci, 48</td>
         </tr>
       </tbody>
     </table>
   </div>
 
+  <footer>
+    <p>Orari, giorni di chiusura e tariffe cambiano spesso e le condizioni del biglietto ridotto variano da sede a sede: conviene verificare sul sito ufficiale di ciascun museo prima di andare.</p>
+    <p>I segnaposto <b>8</b> e <b>9</b> hanno lo stesso indirizzo: il Museo ARCA si trova negli spazi del complesso di Santa Maria La Nova.</p>
+    <p><a href="./">&larr; Prezzi d&rsquo;ingresso dei cinque musei principali</a></p>
+  </footer>
+</div>
 </body>
 </html>
