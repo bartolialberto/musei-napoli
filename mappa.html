@@ -201,7 +201,7 @@ footer a{color:var(--ink-soft)}
     <span class="sep">/</span>
     <a href="mappa.html" aria-current="page">Mappa</a>
     <span class="sep">/</span>
-    <a href="gemini-table.html">Tabella completa</a>
+    <a href="tabella.html">Tabella completa</a>
   </nav>
 
   <header class="masthead">
@@ -214,7 +214,7 @@ footer a{color:var(--ink-soft)}
   <div class="cols">
     <div class="mapcol">
       <div class="mapframe"><svg class="map" id="svg" viewBox="0 0 1000 1081" role="img" aria-label="Mappa schematica di Napoli con musei, riferimenti, metropolitana e funicolari"></svg></div>
-      <p class="mapnote">Costa, colline, strade e tracciati del trasporto sono schematici. I segnaposto di musei, riferimenti e hotel sono proiettati dalle coordinate reali: le distanze fra loro sono quindi corrette. Le distanze indicate sono in linea d&rsquo;aria, non percorsi a piedi — quelle del Vomero comportano 150&nbsp;m di dislivello.</p>
+      <p class="mapnote">Costa, colline, strade e tracciati del trasporto sono schematici. I segnaposto di musei, riferimenti e hotel sono proiettati dalle coordinate reali: le distanze fra loro sono quindi corrette. I segnaposto 8 e 9 hanno lo stesso indirizzo e sono disegnati un poco distanziati per distinguerli. Le distanze indicate sono in linea d&rsquo;aria, non percorsi a piedi — quelle del Vomero comportano 150&nbsp;m di dislivello.</p>
     </div>
     <div id="list"></div>
   </div>
@@ -268,9 +268,6 @@ footer a{color:var(--ink-soft)}
     {z:"antico", name:"Tesoro di San Gennaro", addr:"Via Duomo 149", lat:40.8523, lon:14.2597,
      note:"Sette secoli di doni votivi, fra cui la <b>mitra del 1713</b> incrostata di diamanti, rubini e smeraldi.",
      tr:[["m1","Duomo"],["m2","Cavour"]]},
-    {z:"antico", name:"Museo ARCA — Arte Religiosa Contemporanea", addr:"Basilica di Santa Maria Maggiore alla Pietrasanta", lat:40.8508, lon:14.2551,
-     note:"Arte sacra contemporanea sotto la cupola della <b>Pietrasanta</b>, sul decumano maggiore.",
-     tr:[["m1","Dante"]]},
     {z:"antico", name:"Museo Civico Gaetano Filangieri", addr:"Palazzo Como, Via Duomo 288", lat:40.8492, lon:14.2590,
      note:"Il gabinetto privato di un principe: <b>armi e armature</b>, porcellane, dipinti, in un palazzo rinascimentale smontato e ricostruito.",
      tr:[["m1","Duomo"]]},
@@ -281,8 +278,11 @@ footer a{color:var(--ink-soft)}
     {z:"toledo", name:"Complesso Monumentale Sant’Anna dei Lombardi", addr:"Piazza Monteoliveto 44", lat:40.8424, lon:14.2513,
      note:"Il <b>Compianto</b> in terracotta a grandezza naturale di Guido Mazzoni e la volta della sagrestia del Vasari.",
      tr:[["m1","Toledo"],["m2","Montesanto"]]},
-    {z:"toledo", name:"Complesso Monumentale di Santa Maria La Nova", addr:"Largo Santa Maria La Nova 44", lat:40.8438, lon:14.2537,
+    {z:"toledo", name:"Complesso Monumentale di Santa Maria La Nova", addr:"Piazza Santa Maria La Nova 44", lat:40.8438, lon:14.2537, dx:-20, dy:-14,
      note:"Un <b>soffitto a cassettoni</b> di quarantasei tavole dipinte sopra due chiostri rinascimentali.",
+     tr:[["m1","Municipio"],["m1","Università"]]},
+    {z:"toledo", name:"Museo ARCA — Arte Religiosa Contemporanea", addr:"Piazza Santa Maria La Nova 44", lat:40.8438, lon:14.2537, dx:20, dy:14,
+     note:"Arte sacra contemporanea negli spazi del <b>complesso di Santa Maria La Nova</b>, con cui condivide l’ingresso.",
      tr:[["m1","Municipio"],["m1","Università"]]},
     {z:"toledo", name:"Museo Civico di Castel Nuovo", addr:"Maschio Angioino, Via Vittorio Emanuele III", lat:40.8382, lon:14.2527,
      note:"La <b>Sala dei Baroni</b> e la Cappella Palatina, dietro l\u2019arco di trionfo aragonese.",
@@ -484,15 +484,18 @@ footer a{color:var(--ink-soft)}
 
   var order=SITES.map(function(s,i){return i;}).sort(function(a,b){return SITES[b].lat-SITES[a].lat;});
   order.forEach(function(i){
-    var s=SITES[i], x=px(s.lon).toFixed(1), y=py(s.lat).toFixed(1), body;
+    // dx/dy spostano solo il DISEGNO dei due segnaposto che condividono l'indirizzo;
+    // lat/lon restano quelle vere, quindi le distanze nell'elenco non cambiano
+    var s=SITES[i], X=px(s.lon)+(s.dx||0), Y=py(s.lat)+(s.dy||0);
+    var x=X.toFixed(1), y=Y.toFixed(1), body;
     var c = s.kind==="stay" ? "var(--zstay)" : s.kind==="ref" ? "var(--zref)" : zoneColor(s.z);
     if(s.kind==="stay"){
-      body='<circle class="halo" cx="'+x+'" cy="'+(py(s.lat)-30).toFixed(1)+'" r="30"/>'+
+      body='<circle class="halo" cx="'+x+'" cy="'+(Y-30).toFixed(1)+'" r="30"/>'+
            '<path class="pin" transform="translate('+x+','+y+')" d="M0 0 C-11 -15 -17 -22 -17 -30 A17 17 0 1 1 17 -30 C17 -22 11 -15 0 0 Z"/>'+
-           '<circle cx="'+x+'" cy="'+(py(s.lat)-30).toFixed(1)+'" r="6.5" fill="var(--marker-ring)"/>';
+           '<circle cx="'+x+'" cy="'+(Y-30).toFixed(1)+'" r="6.5" fill="var(--marker-ring)"/>';
     } else if(s.kind==="ref"){
       body='<circle class="halo" cx="'+x+'" cy="'+y+'" r="30"/>'+
-           '<rect class="pin" x="'+(px(s.lon)-16).toFixed(1)+'" y="'+(py(s.lat)-16).toFixed(1)+'" width="32" height="32" rx="8"/>'+
+           '<rect class="pin" x="'+(X-16).toFixed(1)+'" y="'+(Y-16).toFixed(1)+'" width="32" height="32" rx="8"/>'+
            '<text class="num" x="'+x+'" y="'+y+'">'+s.code+'</text>';
     } else {
       body='<circle class="halo" cx="'+x+'" cy="'+y+'" r="30"/>'+
