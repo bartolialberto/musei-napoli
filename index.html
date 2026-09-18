@@ -132,6 +132,8 @@ h1 em{font-style:italic;color:var(--z1)}
 .tot .num{margin:5px 0 0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
   font-size:27px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .tot .sub{margin:3px 0 0;font-size:11.5px;color:var(--ink-faint)}
+/* Bodoni Moda ha il glifo dell'euro mancante: lo rendiamo in Archivo */
+.tot .num .cur{font-family:'Archivo',sans-serif;font-size:.6em;font-weight:600;margin-left:.14em;vertical-align:.08em;color:var(--ink-soft)}
 
 .callout{border-left:3px solid var(--z4);background:var(--surface-2);
   padding:13px 16px;border-radius:0 3px 3px 0;margin:0 0 30px;font-size:13.5px;color:var(--ink-soft)}
@@ -222,7 +224,7 @@ footer a{color:var(--ink-soft)}
   render(ALTRI, document.getElementById("altri"));
 
   function sum(a){return a.reduce(function(t,m){return t+m.price;},0);}
-  function eur(n){return n.toFixed(2).replace(".",",")+" €";}
+  function eur(n){return n.toFixed(2).replace(".",",")+' <span class="cur">€</span>';}
   var t5=sum(TOP5), tAll=sum(TOP5)+sum(ALTRI);
   document.getElementById("totals").innerHTML=
     '<div class="tot"><p class="lab">I cinque principali</p><p class="num">'+eur(t5)+'</p><p class="sub">somma dei biglietti interi</p></div>'+
