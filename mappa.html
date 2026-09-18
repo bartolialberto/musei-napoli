@@ -44,6 +44,7 @@
   --z4:#B5851A;
   --zref:#4A4C43;
   --zstay:#8A3E6E;
+  --zmur:#0E7BC0;
   --m1:#EFA31D;
   --m2:#2E6FBF;
   --m6:#D4559A;
@@ -59,7 +60,7 @@
     --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
     --rule:#34383A; --rule-soft:#282C2E;
     --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
-    --zref:#B8BAAE; --zstay:#D888B8;
+    --zref:#B8BAAE; --zstay:#D888B8; --zmur:#5FB6E8;
     --m1:#F2B84A; --m2:#6FA3E0; --m6:#E680B8; --fun:#9A9488;
     --marker-ring:#15171A;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
@@ -72,7 +73,7 @@
   --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
   --rule:#34383A; --rule-soft:#282C2E;
   --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
-  --zref:#B8BAAE; --zstay:#D888B8;
+  --zref:#B8BAAE; --zstay:#D888B8; --zmur:#5FB6E8;
   --m1:#F2B84A; --m2:#6FA3E0; --m6:#E680B8; --fun:#9A9488;
   --marker-ring:#15171A;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
@@ -167,6 +168,7 @@ svg.map{display:block;width:100%;height:auto;max-width:100%;touch-action:manipul
 .item.stay .n{border-radius:50% 50% 50% 4px;transform:rotate(-45deg)}
 .item.stay .n span{transform:rotate(45deg)}
 .item.ref .n{border-radius:7px}
+.item.mural .n{border-radius:0;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);width:30px;height:30px;margin-top:1px}
 .item h3{margin:0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
   font-weight:500;font-size:17.5px;line-height:1.22;text-wrap:balance}
 .item .addr{margin:4px 0 0;font-size:12px;color:var(--ink-faint)}
@@ -205,9 +207,9 @@ footer a{color:var(--ink-soft)}
   </nav>
 
   <header class="masthead">
-    <p class="eyebrow">18 musei &middot; 4 riferimenti &middot; Metropolitana e funicolari</p>
+    <p class="eyebrow">18 musei &middot; 4 riferimenti &middot; 1 murales &middot; Metropolitana e funicolari</p>
     <h1>Musei di <em>Napoli</em></h1>
-    <p class="standfirst">Diciotto musei e complessi monumentali riportati sulle loro coordinate reali, con Piazza del Plebiscito, Castel dell&rsquo;Ovo e Napoli Centrale come punti di orientamento — e l&rsquo;hotel di Via dei Fiorentini, da cui sono misurate tutte le distanze in linea d&rsquo;aria. Sono tracciate le linee 1, 2 e 6 della metropolitana e le tre funicolari.</p>
+    <p class="standfirst">Diciotto musei e complessi monumentali riportati sulle loro coordinate reali, con Piazza del Plebiscito, Castel dell&rsquo;Ovo e Napoli Centrale come punti di orientamento — e l&rsquo;hotel di Via dei Fiorentini, da cui sono misurate tutte le distanze in linea d&rsquo;aria. Sono tracciate le linee 1, 2 e 6 della metropolitana e le tre funicolari. La stella azzurra nei Quartieri Spagnoli &egrave; il murales di Maradona.</p>
     <div class="legends" id="legends"></div>
   </header>
 
@@ -238,7 +240,8 @@ footer a{color:var(--ink-soft)}
     {id:"antico",label:"Centro antico",              sub:"Decumani e Duomo",          color:"var(--z1)"},
     {id:"toledo",label:"Toledo, Monteoliveto e il porto", sub:"Da via Toledo al mare", color:"var(--z2)"},
     {id:"colline",label:"Le colline",                sub:"Vomero e Capodimonte",      color:"var(--z3)"},
-    {id:"chiaia",label:"Chiaia",                     sub:"Riviera e Martucci",        color:"var(--z4)"}
+    {id:"chiaia",label:"Chiaia",                     sub:"Riviera e Martucci",        color:"var(--z4)"},
+    {id:"murales",label:"Largo Maradona",            sub:"Quartieri Spagnoli",        color:"var(--zmur)"}
   ];
 
   // kind: "museum" | "ref" | "stay"
@@ -312,7 +315,11 @@ footer a{color:var(--ink-soft)}
      tr:[["m2","Piazza Amedeo"],["m6","San Pasquale"]]},
     {z:"chiaia", name:"Fondazione PLART — Plastiche e Arte", addr:"Via Giuseppe Martucci 48", lat:40.8339, lon:14.2342,
      note:"Design e conservazione delle <b>materie plastiche</b>: bachelite, celluloide, Castiglioni, Colombo, Sottsass.",
-     tr:[["m2","Piazza Amedeo"]]}
+     tr:[["m2","Piazza Amedeo"]]},
+
+    {z:"murales", kind:"mural", name:"Murales di Diego Armando Maradona", addr:"Largo Maradona, Via Emanuele De Deo 49", lat:40.8423, lon:14.2468, dx:-18, dy:-10,
+     note:"Dipinto nel <b>1990</b> sul muro di un cortile dei Quartieri, dopo il secondo scudetto, e riportato a nuovo nel 2017 da Salvatore Iodice. Il largo è diventato un santuario laico: ceraioli, sciarpe, ex voto. <b>Sempre aperto, ingresso libero.</b>",
+     tr:[["m1","Toledo"],["m2","Montesanto"]]},
   ];
 
   var LINES={
@@ -415,7 +422,7 @@ footer a{color:var(--ink-soft)}
     {t:"CENTRO ANTICO", lat:40.8452, lon:14.2662, s:18},
     {t:"CAPODIMONTE",   lat:40.8648, lon:14.2600, s:17},
     {t:"SANITÀ",   lat:40.8588, lon:14.2560, s:15},
-    {t:"QUARTIERI",     lat:40.8416, lon:14.2444, s:15},
+    {t:"QUARTIERI",     lat:40.8400, lon:14.2430, s:15},
     {t:"PORTO",         lat:40.8384, lon:14.2686, s:16}
   ];
 
@@ -477,7 +484,7 @@ footer a{color:var(--ink-soft)}
 
   /* --- markers --- */
   var museums=[], idxOf={};
-  SITES.forEach(function(s,i){ s._i=i; if(s.kind!=="ref"&&s.kind!=="stay") museums.push(i); });
+  SITES.forEach(function(s,i){ s._i=i; if(!s.kind) museums.push(i); });   // solo i musei sono numerati
   museums.forEach(function(i,k){ SITES[i]._num=k+1; });
 
   function zoneColor(z){for(var i=0;i<GROUPS.length;i++) if(GROUPS[i].id===z) return GROUPS[i].color; return "var(--ink)";}
@@ -493,6 +500,9 @@ footer a{color:var(--ink-soft)}
       body='<circle class="halo" cx="'+x+'" cy="'+(Y-30).toFixed(1)+'" r="30"/>'+
            '<path class="pin" transform="translate('+x+','+y+')" d="M0 0 C-11 -15 -17 -22 -17 -30 A17 17 0 1 1 17 -30 C17 -22 11 -15 0 0 Z"/>'+
            '<circle cx="'+x+'" cy="'+(Y-30).toFixed(1)+'" r="6.5" fill="var(--marker-ring)"/>';
+    } else if(s.kind==="mural"){
+      body='<circle class="halo" cx="'+x+'" cy="'+y+'" r="30"/>'+
+           '<path class="pin" transform="translate('+x+','+y+')" d="M0 -20 L5.1 -7 L19 -6.2 L8.2 2.7 L11.8 16.2 L0 8.6 L-11.8 16.2 L-8.2 2.7 L-19 -6.2 L-5.1 -7 Z"/>';
     } else if(s.kind==="ref"){
       body='<circle class="halo" cx="'+x+'" cy="'+y+'" r="30"/>'+
            '<rect class="pin" x="'+(X-16).toFixed(1)+'" y="'+(Y-16).toFixed(1)+'" width="32" height="32" rx="8"/>'+
@@ -533,6 +543,7 @@ footer a{color:var(--ink-soft)}
     members.forEach(function(s){
       var mark = s.kind==="stay" ? '<span class="n" style="--c:var(--zstay)"><span>'+s.code+'</span></span>'
                : s.kind==="ref"  ? '<span class="n" style="--c:var(--zref)">'+s.code+'</span>'
+               : s.kind==="mural" ? '<span class="n" aria-hidden="true"></span>'
                : '<span class="n">'+s._num+'</span>';
       var d = (s.kind==="stay") ? '' : ' &middot; <span class="dist">'+fmtD(dist(HOTEL.lat,HOTEL.lon,s.lat,s.lon))+' dall’hotel</span>';
       html.push('<li class="item '+(s.kind||"museum")+'" data-i="'+s._i+'" tabindex="0">'+mark+
