@@ -44,7 +44,7 @@
   --z4:#B5851A;
   --zref:#4A4C43;
   --zstay:#8A3E6E;
-  --zmur:#0E7BC0;
+  --zluo:#0C93C9;
   --m1:#EFA31D;
   --m2:#2E6FBF;
   --m6:#D4559A;
@@ -60,7 +60,7 @@
     --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
     --rule:#34383A; --rule-soft:#282C2E;
     --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
-    --zref:#B8BAAE; --zstay:#D888B8; --zmur:#5FB6E8;
+    --zref:#B8BAAE; --zstay:#D888B8; --zluo:#4FC2EE;
     --m1:#F2B84A; --m2:#6FA3E0; --m6:#E680B8; --fun:#9A9488;
     --marker-ring:#15171A;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
@@ -73,7 +73,7 @@
   --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
   --rule:#34383A; --rule-soft:#282C2E;
   --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
-  --zref:#B8BAAE; --zstay:#D888B8; --zmur:#5FB6E8;
+  --zref:#B8BAAE; --zstay:#D888B8; --zluo:#4FC2EE;
   --m1:#F2B84A; --m2:#6FA3E0; --m6:#E680B8; --fun:#9A9488;
   --marker-ring:#15171A;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
@@ -83,25 +83,25 @@
 body{
   background:var(--ground);color:var(--ink);
   font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
-  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1300px;margin:0 auto;padding-inline:20px;padding-block:28px 56px}
 
 .masthead{border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:22px}
-.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:0 0 10px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:0 0 10px}
 h1{font-family:'Bodoni Moda',Didot,'Times New Roman',serif;font-weight:600;
    font-size:clamp(34px,6vw,54px);line-height:1.02;margin:0;letter-spacing:-.01em;text-wrap:balance}
 h1 em{font-style:italic;color:var(--z1)}
-.standfirst{margin:12px 0 0;max-width:60ch;color:var(--ink-soft);font-size:15px}
+.standfirst{margin:12px 0 0;max-width:60ch;color:var(--ink-soft);font-size:16px}
 
 /* ---- legends ---- */
 .legends{display:flex;flex-direction:column;gap:9px;margin-top:18px}
 .legend{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none;align-items:center}
-.legend .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-right:3px}
+.legend .lbl{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-right:3px}
 .chip{
   display:inline-flex;align-items:center;gap:7px;
   border:1px solid var(--rule);background:var(--surface);border-radius:999px;
-  padding:5px 12px 5px 9px;font-size:12.5px;font-weight:500;color:var(--ink);
+  padding:5px 12px 5px 9px;font-size:13.5px;font-weight:500;color:var(--ink);
   cursor:pointer;transition:background .15s,border-color .15s;font-family:inherit;
 }
 .chip:hover{border-color:var(--ink-faint)}
@@ -125,14 +125,14 @@ h1 em{font-style:italic;color:var(--z1)}
 .mapframe{background:var(--sea);border:1px solid var(--rule);border-radius:3px;
   overflow:hidden;box-shadow:var(--shadow);line-height:0}
 svg.map{display:block;width:100%;height:auto;max-width:100%;touch-action:manipulation}
-.mapnote{margin:10px 2px 0;font-size:11.5px;line-height:1.5;color:var(--ink-faint);max-width:56ch}
+.mapnote{margin:10px 2px 0;font-size:12.5px;line-height:1.5;color:var(--ink-faint);max-width:56ch}
 
 /* ---- map internals ---- */
 .marker{cursor:pointer}
 .marker .halo{fill:var(--c);opacity:0;transition:opacity .18s}
 .marker .pin{fill:var(--c);stroke:var(--marker-ring);stroke-width:3.4}
 .marker .num{fill:var(--marker-ring);font-family:'Archivo',sans-serif;font-weight:700;
-  font-size:18.5px;text-anchor:middle;dominant-baseline:central;pointer-events:none;letter-spacing:-.02em}
+  font-size:19.5px;text-anchor:middle;dominant-baseline:central;pointer-events:none;letter-spacing:-.02em}
 .marker:hover .halo,.marker.on .halo{opacity:.25}
 .marker:focus-visible{outline:none}
 .marker:focus-visible .halo{opacity:.32}
@@ -151,9 +151,9 @@ svg.map{display:block;width:100%;height:auto;max-width:100%;touch-action:manipul
 .zone{margin:0 0 28px}
 .zone:last-child{margin-bottom:0}
 .zonehead{display:flex;align-items:baseline;gap:10px;padding-bottom:7px;border-bottom:2px solid var(--c);margin-bottom:2px}
-.zonehead h2{margin:0;font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;
+.zonehead h2{margin:0;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;
   letter-spacing:.15em;text-transform:uppercase;color:var(--c)}
-.zonehead .sub{font-size:11.5px;color:var(--ink-faint);margin-left:auto;font-variant-numeric:tabular-nums;text-align:right}
+.zonehead .sub{font-size:12.5px;color:var(--ink-faint);margin-left:auto;font-variant-numeric:tabular-nums;text-align:right}
 .items{list-style:none;margin:0;padding:0}
 .item{display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 13px;
   padding:12px 10px 12px 8px;border-bottom:1px solid var(--rule-soft);
@@ -164,26 +164,26 @@ svg.map{display:block;width:100%;height:auto;max-width:100%;touch-action:manipul
 .item:focus-visible{outline:2px solid var(--c);outline-offset:-2px}
 .item .n{grid-row:1/span 4;width:28px;height:28px;border-radius:50%;
   background:var(--c);color:var(--marker-ring);display:flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px}
+  font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px}
 .item.stay .n{border-radius:50% 50% 50% 4px;transform:rotate(-45deg)}
 .item.stay .n span{transform:rotate(45deg)}
 .item.ref .n{border-radius:7px}
-.item.mural .n{border-radius:0;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);width:30px;height:30px;margin-top:1px}
+.item.luogo .n{border-radius:0;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);width:32px;height:32px;margin-top:0}
 .item h3{margin:0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
-  font-weight:500;font-size:17.5px;line-height:1.22;text-wrap:balance}
-.item .addr{margin:4px 0 0;font-size:12px;color:var(--ink-faint)}
+  font-weight:500;font-size:18.5px;line-height:1.22;text-wrap:balance}
+.item .addr{margin:4px 0 0;font-size:13px;color:var(--ink-faint)}
 .item .addr .dist{color:var(--zstay);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
-.item .note{margin:6px 0 0;font-size:13.5px;color:var(--ink-soft);line-height:1.45}
+.item .note{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft);line-height:1.45}
 .item .note b{color:var(--ink);font-weight:600}
 .item .tr{margin:7px 0 0;display:flex;flex-wrap:wrap;gap:5px;align-items:center;
-  font-size:12px;color:var(--ink-soft)}
+  font-size:13px;color:var(--ink-soft)}
 .badge{display:inline-flex;align-items:center;gap:5px;border-radius:3px;
-  padding:1px 7px 1px 5px;font-size:11px;font-weight:600;letter-spacing:.02em;
+  padding:1px 7px 1px 5px;font-size:12px;font-weight:600;letter-spacing:.02em;
   background:var(--surface-2);border:1px solid var(--rule)}
 .badge i{width:8px;height:8px;border-radius:2px;background:var(--c);font-style:normal;flex:none}
 
 footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);
-  font-size:12px;color:var(--ink-faint);max-width:78ch}
+  font-size:13px;color:var(--ink-faint);max-width:78ch}
 footer p{margin:0 0 7px}
 footer a{color:var(--ink-soft)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
@@ -203,13 +203,15 @@ footer a{color:var(--ink-soft)}
     <span class="sep">/</span>
     <a href="mappa.html" aria-current="page">Mappa</a>
     <span class="sep">/</span>
-    <a href="tabella.html">Tabella completa</a>
+    <a href="tabella.html">Tabella musei</a>
+    <span class="sep">/</span>
+    <a href="luoghi.html">Luoghi e mercati</a>
   </nav>
 
   <header class="masthead">
-    <p class="eyebrow">18 musei &middot; 4 riferimenti &middot; 1 murales &middot; Metropolitana e funicolari</p>
+    <p class="eyebrow">18 musei &middot; 8 luoghi e mercati &middot; 4 riferimenti &middot; Metro e funicolari</p>
     <h1>Musei di <em>Napoli</em></h1>
-    <p class="standfirst">Diciotto musei e complessi monumentali riportati sulle loro coordinate reali, con Piazza del Plebiscito, Castel dell&rsquo;Ovo e Napoli Centrale come punti di orientamento — e l&rsquo;hotel di Via dei Fiorentini, da cui sono misurate tutte le distanze in linea d&rsquo;aria. Sono tracciate le linee 1, 2 e 6 della metropolitana e le tre funicolari. La stella azzurra nei Quartieri Spagnoli &egrave; il murales di Maradona.</p>
+    <p class="standfirst">Diciotto musei e complessi monumentali riportati sulle loro coordinate reali, con Piazza del Plebiscito, Castel dell&rsquo;Ovo e Napoli Centrale come punti di orientamento — e l&rsquo;hotel di Via dei Fiorentini, da cui sono misurate tutte le distanze in linea d&rsquo;aria. Sono tracciate le linee 1, 2 e 6 della metropolitana e le tre funicolari. I <b>rombi azzurri</b> sono strade, mercati e il murales di Maradona: hanno una numerazione propria, da 1 a 8.</p>
     <div class="legends" id="legends"></div>
   </header>
 
@@ -241,7 +243,7 @@ footer a{color:var(--ink-soft)}
     {id:"toledo",label:"Toledo, Monteoliveto e il porto", sub:"Da via Toledo al mare", color:"var(--z2)"},
     {id:"colline",label:"Le colline",                sub:"Vomero e Capodimonte",      color:"var(--z3)"},
     {id:"chiaia",label:"Chiaia",                     sub:"Riviera e Martucci",        color:"var(--z4)"},
-    {id:"murales",label:"Largo Maradona",            sub:"Quartieri Spagnoli",        color:"var(--zmur)"}
+    {id:"luoghi",label:"Luoghi e mercati",           sub:"Strade, mercati, un murales", color:"var(--zluo)"}
   ];
 
   // kind: "museum" | "ref" | "stay"
@@ -317,9 +319,30 @@ footer a{color:var(--ink-soft)}
      note:"Design e conservazione delle <b>materie plastiche</b>: bachelite, celluloide, Castiglioni, Colombo, Sottsass.",
      tr:[["m2","Piazza Amedeo"]]},
 
-    {z:"murales", kind:"mural", name:"Murales di Diego Armando Maradona", addr:"Largo Maradona, Via Emanuele De Deo 49", lat:40.8423, lon:14.2468, dx:-18, dy:-10,
-     note:"Dipinto nel <b>1990</b> sul muro di un cortile dei Quartieri, dopo il secondo scudetto, e riportato a nuovo nel 2017 da Salvatore Iodice. Il largo è diventato un santuario laico: ceraioli, sciarpe, ex voto. <b>Sempre aperto, ingresso libero.</b>",
+    {z:"luoghi", kind:"luogo", name:"Largo Maradona", addr:"Largo Maradona, Via Emanuele De Deo 49", lat:40.8423, lon:14.2468, dx:-18, dy:-10,
+     note:"Il murales dipinto nel <b>1990</b> dopo il secondo scudetto e riportato a nuovo nel 2017. Il largo è diventato un santuario laico: ceri, sciarpe, ex voto.",
      tr:[["m1","Toledo"],["m2","Montesanto"]]},
+    {z:"luoghi", kind:"luogo", name:"Cappella Sansevero", addr:"Via Francesco de Sanctis 19/21", lat:40.8494, lon:14.2545,
+     note:"Il <b>Cristo velato</b> di Giuseppe Sanmartino, il velo di marmo più famoso d’Europa, sotto la volta affrescata voluta da Raimondo di Sangro.",
+     tr:[["m1","Dante"],["m1","Duomo"]]},
+    {z:"luoghi", kind:"luogo", name:"Spaccanapoli", addr:"Da Piazza del Gesù a Via Vicaria Vecchia", lat:40.8482, lon:14.2521,
+     note:"Il <b>decumano inferiore</b> greco-romano: un taglio dritto che divide in due il centro antico, fra chiese, botteghe e palazzi.",
+     tr:[["m1","Dante"],["m1","Duomo"]]},
+    {z:"luoghi", kind:"luogo", name:"Mercato della Pignasecca", addr:"Via Pignasecca, Montesanto", lat:40.8443, lon:14.2475, dx:22, dy:-10,
+     note:"Il mercato più antico della città: pesce, frutta, salumi e le voci dei venditori, a due passi da Via Toledo.",
+     tr:[["m2","Montesanto"],["m1","Toledo"]]},
+    {z:"luoghi", kind:"luogo", name:"Mercato dei Vergini", addr:"Via dei Vergini, Rione Sanità", lat:40.8568, lon:14.2535,
+     note:"Mercato di strada quotidiano nel cuore della <b>Sanità</b>, sotto i palazzi barocchi e le scale del Vanvitelli.",
+     tr:[["m1","Museo"],["m2","Cavour"]]},
+    {z:"luoghi", kind:"luogo", name:"Mercato di Antignano", addr:"Largo Antignano, Vomero", lat:40.8490, lon:14.2287,
+     note:"Il mercato del <b>Vomero</b>, l’unico su in collina: banchi di alimentari e abbigliamento nel vecchio casale di Antignano.",
+     tr:[["m1","Vanvitelli"],["fun","Chiaia → Cimarosa"]]},
+    {z:"luoghi", kind:"luogo", name:"Mercato di Porta Nolana", addr:"Piazza Nolana / Via Sopramuro", lat:40.8482, lon:14.2695,
+     note:"Il <b>mercato del pesce</b> sotto la porta aragonese, con le bancarelle che arrivano fin sotto la Stazione Centrale.",
+     tr:[["m1","Garibaldi"],["m2","Piazza Garibaldi"]]},
+    {z:"luoghi", kind:"luogo", name:"San Gregorio Armenio", addr:"Via San Gregorio Armenio", lat:40.8503, lon:14.2575, dx:-14, dy:-16,
+     note:"La strada dei <b>pastori</b>: botteghe di figurari aperte tutto l’anno, fra il decumano maggiore e Spaccanapoli.",
+     tr:[["m1","Duomo"],["m1","Dante"]]}
   ];
 
   var LINES={
@@ -486,6 +509,9 @@ footer a{color:var(--ink-soft)}
   var museums=[], idxOf={};
   SITES.forEach(function(s,i){ s._i=i; if(!s.kind) museums.push(i); });   // solo i musei sono numerati
   museums.forEach(function(i,k){ SITES[i]._num=k+1; });
+  var luoghi=[];
+  SITES.forEach(function(s,i){ if(s.kind==="luogo") luoghi.push(i); });
+  luoghi.forEach(function(i,k){ SITES[i]._num=k+1; });   // serie separata, 1..8
 
   function zoneColor(z){for(var i=0;i<GROUPS.length;i++) if(GROUPS[i].id===z) return GROUPS[i].color; return "var(--ink)";}
 
@@ -500,9 +526,10 @@ footer a{color:var(--ink-soft)}
       body='<circle class="halo" cx="'+x+'" cy="'+(Y-30).toFixed(1)+'" r="30"/>'+
            '<path class="pin" transform="translate('+x+','+y+')" d="M0 0 C-11 -15 -17 -22 -17 -30 A17 17 0 1 1 17 -30 C17 -22 11 -15 0 0 Z"/>'+
            '<circle cx="'+x+'" cy="'+(Y-30).toFixed(1)+'" r="6.5" fill="var(--marker-ring)"/>';
-    } else if(s.kind==="mural"){
+    } else if(s.kind==="luogo"){
       body='<circle class="halo" cx="'+x+'" cy="'+y+'" r="30"/>'+
-           '<path class="pin" transform="translate('+x+','+y+')" d="M0 -20 L5.1 -7 L19 -6.2 L8.2 2.7 L11.8 16.2 L0 8.6 L-11.8 16.2 L-8.2 2.7 L-19 -6.2 L-5.1 -7 Z"/>';
+           '<path class="pin" transform="translate('+x+','+y+')" d="M0 -19 L19 0 L0 19 L-19 0 Z"/>'+
+           '<text class="num" x="'+x+'" y="'+y+'">'+s._num+'</text>';
     } else if(s.kind==="ref"){
       body='<circle class="halo" cx="'+x+'" cy="'+y+'" r="30"/>'+
            '<rect class="pin" x="'+(X-16).toFixed(1)+'" y="'+(Y-16).toFixed(1)+'" width="32" height="32" rx="8"/>'+
@@ -543,7 +570,7 @@ footer a{color:var(--ink-soft)}
     members.forEach(function(s){
       var mark = s.kind==="stay" ? '<span class="n" style="--c:var(--zstay)"><span>'+s.code+'</span></span>'
                : s.kind==="ref"  ? '<span class="n" style="--c:var(--zref)">'+s.code+'</span>'
-               : s.kind==="mural" ? '<span class="n" aria-hidden="true"></span>'
+               : s.kind==="luogo" ? '<span class="n">'+s._num+'</span>'
                : '<span class="n">'+s._num+'</span>';
       var d = (s.kind==="stay") ? '' : ' &middot; <span class="dist">'+fmtD(dist(HOTEL.lat,HOTEL.lon,s.lat,s.lon))+' dall’hotel</span>';
       html.push('<li class="item '+(s.kind||"museum")+'" data-i="'+s._i+'" tabindex="0">'+mark+

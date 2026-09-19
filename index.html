@@ -59,11 +59,11 @@
 *{box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);
   font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
-  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 .wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:24px 56px}
 
 /* ---- site nav ---- */
-.sitenav{display:flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.04em;margin-bottom:20px}
+.sitenav{display:flex;align-items:center;gap:9px;font-size:13px;letter-spacing:.04em;margin-bottom:20px}
 .sitenav a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
 .sitenav a:hover{color:var(--ink);border-bottom-color:var(--rule)}
 .sitenav a[aria-current]{color:var(--ink);font-weight:600}
@@ -72,7 +72,7 @@ body{background:var(--ground);color:var(--ink);
 
 /* ---- masthead ---- */
 .masthead{border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:26px}
-.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:0 0 10px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:0 0 10px}
 h1{font-family:'Bodoni Moda',Didot,'Times New Roman',serif;font-weight:600;
   font-size:clamp(34px,6.5vw,54px);line-height:1.02;margin:0;letter-spacing:-.01em;text-wrap:balance}
 h1 em{font-style:italic;color:var(--z1)}
@@ -87,13 +87,13 @@ h1 em{font-style:italic;color:var(--z1)}
 .mapcard:focus-visible{outline:2px solid var(--z2);outline-offset:3px}
 @media (max-width:620px){.mapcard{grid-template-columns:1fr;gap:16px}
   .mapcard .thumb{order:-1;max-width:170px;margin-inline:auto}}
-.mapcard .kicker{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+.mapcard .kicker{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink-faint);font-weight:700;margin:0 0 7px}
 .mapcard h2{margin:0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
-  font-weight:500;font-size:25px;line-height:1.14;letter-spacing:-.005em}
-.mapcard p{margin:8px 0 0;font-size:13.5px;color:var(--ink-soft);line-height:1.45}
+  font-weight:500;font-size:26px;line-height:1.14;letter-spacing:-.005em}
+.mapcard p{margin:8px 0 0;font-size:14.5px;color:var(--ink-soft);line-height:1.45}
 .mapcard .go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;
-  font-size:12.5px;font-weight:600;color:var(--z1);letter-spacing:.02em}
+  font-size:13.5px;font-weight:600;color:var(--z1);letter-spacing:.02em}
 .mapcard .thumb{line-height:0;border-radius:3px;overflow:hidden;border:1px solid var(--rule)}
 .mapcard .thumb svg{display:block;width:100%;height:auto}
 
@@ -101,37 +101,37 @@ h1 em{font-style:italic;color:var(--z1)}
 .sec{margin:0 0 30px}
 .sechead{display:flex;align-items:baseline;gap:12px;padding-bottom:8px;
   border-bottom:2px solid var(--ink);margin-bottom:2px}
-.sechead h2{margin:0;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;
+.sechead h2{margin:0;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;
   letter-spacing:.15em;text-transform:uppercase}
-.sechead .cnt{margin-left:auto;font-size:11.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.sechead .cnt{margin-left:auto;font-size:12.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
 .prices{list-style:none;margin:0;padding:0}
 .row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:0 14px;
   padding:16px 2px 17px 0;border-bottom:1px solid var(--rule-soft)}
 .row .pin{grid-area:1/1/6/2;width:25px;height:25px;border-radius:50%;background:var(--c);
   color:var(--marker-ring);display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;align-self:start;margin-top:3px}
+  font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;align-self:start;margin-top:3px}
 .row .name{grid-area:1/2/2/3;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
-  font-weight:500;font-size:18.5px;line-height:1.2;text-wrap:balance}
-.row .name .abbr{font-family:'Archivo',sans-serif;font-size:10.5px;font-weight:700;
+  font-weight:500;font-size:19.5px;line-height:1.2;text-wrap:balance}
+.row .name .abbr{font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;
   letter-spacing:.1em;color:var(--ink-faint);vertical-align:2px;margin-left:6px;white-space:nowrap}
 .row .price{grid-area:1/3/2/4;display:flex;flex-direction:column;align-items:flex-end;
   gap:1px;padding-left:8px}
-.row .price .lab{font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+.row .price .lab{font-size:11px;letter-spacing:.13em;text-transform:uppercase;
   font-weight:700;color:var(--ink-faint)}
-.row .price .val{font-size:19px;font-weight:600;font-variant-numeric:tabular-nums;
+.row .price .val{font-size:20px;font-weight:600;font-variant-numeric:tabular-nums;
   letter-spacing:-.01em;white-space:nowrap}
 .row .when{grid-area:2/2/3/3;display:flex;flex-wrap:wrap;align-items:center;
-  gap:6px 10px;margin-top:6px;font-size:12px}
+  gap:6px 10px;margin-top:6px;font-size:13px}
 .row .hours{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink-soft);letter-spacing:.02em}
-.row .tag{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+.row .tag{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
   border:1px solid;border-radius:3px;padding:2px 7px;line-height:1.5}
 .row .tag.shut{color:var(--z1);border-color:var(--z1)}
 .row .tag.ok{color:var(--z3);border-color:var(--z3)}
-.row .why{grid-area:3/2/4/3;margin-top:9px;font-size:13.5px;color:var(--ink-soft);
+.row .why{grid-area:3/2/4/3;margin-top:9px;font-size:14.5px;color:var(--ink-soft);
   line-height:1.52;max-width:66ch}
 .row .why em{font-style:italic;color:var(--ink)}
-.row .note{grid-area:4/2/5/3;margin-top:8px;font-size:12px;color:var(--ink-faint)}
-.secnote{margin:14px 0 0;font-size:12px;line-height:1.55;color:var(--ink-faint);max-width:74ch}
+.row .note{grid-area:4/2/5/3;margin-top:8px;font-size:13px;color:var(--ink-faint)}
+.secnote{margin:14px 0 0;font-size:13px;line-height:1.55;color:var(--ink-faint);max-width:74ch}
 .secnote b{color:var(--ink-soft);font-weight:600}
 
 /* ---- link alla tabella completa ---- */
@@ -141,12 +141,12 @@ h1 em{font-style:italic;color:var(--z1)}
   box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
 .tablecard:hover{border-color:var(--ink-faint);transform:translateY(-1px)}
 .tablecard:focus-visible{outline:2px solid var(--z2);outline-offset:3px}
-.tablecard .kicker{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+.tablecard .kicker{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink-faint);font-weight:700;margin:0 0 7px}
 .tablecard h2{margin:0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
-  font-weight:500;font-size:23px;line-height:1.15;letter-spacing:-.005em}
-.tablecard p{margin:8px 0 0;font-size:13.5px;color:var(--ink-soft);line-height:1.45;max-width:58ch}
-.tablecard .go{display:inline-block;margin-top:11px;font-size:12.5px;font-weight:600;
+  font-weight:500;font-size:24px;line-height:1.15;letter-spacing:-.005em}
+.tablecard p{margin:8px 0 0;font-size:14.5px;color:var(--ink-soft);line-height:1.45;max-width:58ch}
+.tablecard .go{display:inline-block;margin-top:11px;font-size:13.5px;font-weight:600;
   color:var(--z1);letter-spacing:.02em}
 .tablecard .pins{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .tablecard .pins i{width:17px;height:17px;border-radius:50%;background:var(--c);display:block}
@@ -155,19 +155,19 @@ h1 em{font-style:italic;color:var(--z1)}
 /* ---- totals ---- */
 .totals{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
 .tot{flex:1 1 200px;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:14px 16px}
-.tot .lab{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--ink-faint);margin:0}
+.tot .lab{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--ink-faint);margin:0}
 .tot .num{margin:5px 0 0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
-  font-size:27px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.tot .sub{margin:3px 0 0;font-size:11.5px;color:var(--ink-faint)}
+  font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.tot .sub{margin:3px 0 0;font-size:12.5px;color:var(--ink-faint)}
 /* Bodoni Moda ha il glifo dell'euro mancante: lo rendiamo in Archivo */
 .tot .num .cur{font-family:'Archivo',sans-serif;font-size:.6em;font-weight:600;margin-left:.14em;vertical-align:.08em;color:var(--ink-soft)}
 
 .callout{border-left:3px solid var(--z4);background:var(--surface-2);
-  padding:13px 16px;border-radius:0 3px 3px 0;margin:0 0 30px;font-size:13.5px;color:var(--ink-soft)}
+  padding:13px 16px;border-radius:0 3px 3px 0;margin:0 0 30px;font-size:14.5px;color:var(--ink-soft)}
 .callout b{color:var(--ink);font-weight:600}
 
 footer{margin-top:8px;padding-top:16px;border-top:1px solid var(--rule);
-  font-size:12px;color:var(--ink-faint);max-width:78ch}
+  font-size:13px;color:var(--ink-faint);max-width:78ch}
 footer p{margin:0 0 7px}
 footer a{color:var(--ink-soft)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
@@ -180,7 +180,9 @@ footer a{color:var(--ink-soft)}
     <span class="sep">/</span>
     <a href="mappa.html">Mappa</a>
     <span class="sep">/</span>
-    <a href="tabella.html">Tabella completa</a>
+    <a href="tabella.html">Tabella musei</a>
+    <span class="sep">/</span>
+    <a href="luoghi.html">Luoghi e mercati</a>
   </nav>
 
   <header class="masthead">

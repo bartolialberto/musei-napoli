@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Luoghi e mercati di Napoli</title>
+<meta name="description" content="Otto luoghi di Napoli fuori dai musei: strade, mercati e un murales, con orari indicativi e indirizzi.">
+<meta property="og:title" content="Luoghi e mercati di Napoli">
+<meta property="og:description" content="Otto luoghi di Napoli fuori dai musei: strade, mercati e un murales.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&display=swap">
+<style>
+:root{
+  color-scheme: light dark;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --ground:#EFEFE9; --surface:#FBFAF6; --surface-2:#F4F3EC;
+  --ink:#22241F; --ink-soft:#6B6E62; --ink-faint:#93968A;
+  --rule:#D6D4C6; --rule-soft:#E3E1D5;
+  --z1:#B33A2B; --z2:#2F5A78; --z3:#57783A; --z4:#B5851A;
+  --zluo:#0C93C9;
+  --marker-ring:#FBFAF6;
+  --shadow:0 1px 2px rgba(34,36,31,.07), 0 6px 18px rgba(34,36,31,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+  --ground:#15171A; --surface:#1C1F21; --surface-2:#222628;
+  --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
+  --rule:#34383A; --rule-soft:#282C2E;
+  --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
+  --zluo:#4FC2EE;
+  --marker-ring:#15171A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15171A; --surface:#1C1F21; --surface-2:#222628;
+  --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
+  --rule:#34383A; --rule-soft:#282C2E;
+  --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
+  --zluo:#4FC2EE;
+  --marker-ring:#15171A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:20px;padding-block:24px 56px}
+
+/* ---- nav ---- */
+.sitenav{display:flex;align-items:center;gap:9px;font-size:13px;letter-spacing:.04em;margin-bottom:20px}
+.sitenav a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.sitenav a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.sitenav a[aria-current]{color:var(--ink);font-weight:600}
+.sitenav a:focus-visible{outline:2px solid var(--z2);outline-offset:3px;border-radius:2px}
+.sitenav .sep{color:var(--ink-faint)}
+
+/* ---- masthead ---- */
+.masthead{border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:22px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:0 0 10px}
+h1{font-family:'Bodoni Moda',Didot,'Times New Roman',serif;font-weight:600;
+  font-size:clamp(34px,6.5vw,54px);line-height:1.02;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--z1)}
+.standfirst{margin:12px 0 0;max-width:64ch;color:var(--ink-soft)}
+.standfirst a{color:var(--ink);text-underline-offset:3px}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 0;padding:0;list-style:none}
+.legend li{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--rule);
+  background:var(--surface);border-radius:999px;padding:4px 12px 4px 9px;font-size:13px;color:var(--ink-soft)}
+.legend i{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+
+/* ---- tabella ---- */
+.tablebox{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;
+  background:var(--surface);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;min-width:1000px}
+thead th{position:sticky;top:0;background:var(--surface-2);text-align:left;
+  font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-faint);padding:12px 16px;border-bottom:2px solid var(--ink);white-space:nowrap}
+td{padding:16px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+.badge{display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;background:var(--c);color:var(--marker-ring);
+  font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.badge.luo{--c:var(--zluo);border-radius:0;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);width:30px;height:30px}
+.c-num{width:56px;text-align:center;padding-inline:10px}
+.c-name{width:17%;min-width:170px;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
+  font-weight:500;font-size:18px;line-height:1.22}
+.c-desc{width:36%;min-width:280px;font-size:14px;color:var(--ink-soft);line-height:1.5}
+.c-desc em{font-style:italic;color:var(--ink)}
+.c-when{width:15%;min-width:150px;font-size:13.5px;color:var(--ink-soft)}
+.c-when .hrs{display:block;font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:.01em}
+.c-price{width:13%;min-width:130px;font-size:16.5px;font-weight:600;
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.c-addr{width:15%;min-width:140px;font-size:13px;color:var(--ink-faint)}
+.c-when em,.c-price em{display:block;font-style:normal;font-weight:400;
+  font-size:12.5px;letter-spacing:0;color:var(--ink-faint);margin-top:4px}
+.tag{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;border:1px solid;border-radius:3px;padding:2px 7px;line-height:1.5}
+.tag.shut{color:var(--z1);border-color:var(--z1)}
+.tag.ok{color:var(--z3);border-color:var(--z3)}
+
+/* ---- sotto gli 860px la tabella diventa un elenco di schede ---- */
+@media (max-width:860px){
+  .tablebox{overflow-x:visible;border:0;border-radius:0;background:transparent;box-shadow:none}
+  table{min-width:0}
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  tbody tr{display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 12px;
+    background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+    padding:15px 16px;margin-bottom:12px;box-shadow:var(--shadow)}
+  tbody tr:hover{background:var(--surface)}
+  td{display:block;width:auto!important;min-width:0!important;padding:0;border:0}
+  .c-num{grid-row:1/span 5;text-align:left;padding:0;margin-top:2px}
+  .c-name{font-size:19.5px}
+  .c-desc,.c-when,.c-price,.c-addr{margin-top:11px}
+  .c-desc::before,.c-when::before,.c-price::before,.c-addr::before{
+    content:attr(data-l);display:block;font-family:'Archivo',sans-serif;
+    font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin-bottom:3px}
+}
+
+footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--ink-faint);max-width:78ch}
+footer p{margin:0 0 7px}
+footer a{color:var(--ink-soft)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav">
+    <a href="./">Musei di Napoli</a>
+    <span class="sep">/</span>
+    <a href="mappa.html">Mappa</a>
+    <span class="sep">/</span>
+    <a href="tabella.html">Tabella musei</a>
+    <span class="sep">/</span>
+    <a href="luoghi.html" aria-current="page">Luoghi e mercati</a>
+  </nav>
+
+  <header class="masthead">
+    <p class="eyebrow">Luoghi e mercati &middot; 8 tappe</p>
+    <h1>Musei di <em>Napoli</em></h1>
+    <p class="standfirst">Quello che a Napoli non sta dentro un museo: una strada greca, quattro mercati, la bottega dei pastori e un murales. Sulla <a href="mappa.html">mappa</a> sono <b>rombi azzurri</b> con una numerazione tutta loro, da 1 a 8, distinta da quella dei diciotto musei.</p>
+    <ul class="legend">
+      <li style="--c:var(--zluo)"><i></i>Tutti e otto lo stesso colore: non sono musei</li>
+    </ul>
+  </header>
+
+  <div class="tablebox">
+    <table>
+      <thead>
+        <tr>
+          <th class="c-num">N.</th>
+          <th>Luogo</th>
+          <th>Descrizione</th>
+          <th>Orario</th>
+          <th>Prezzo</th>
+          <th>Indirizzo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="c-num"><span class="badge luo">1</span></td>
+          <td class="c-name" data-l="Luogo">Largo Maradona</td>
+          <td class="c-desc" data-l="Descrizione">Il murales di Diego Armando Maradona, dipinto nel 1990 sul muro di un cortile dei Quartieri Spagnoli dopo il secondo scudetto e riportato a nuovo nel 2017. Il largo è diventato un santuario laico: ceri, sciarpe, ex voto.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">Sempre accessibile</span><span class="tag ok">Aperto tutti i giorni</span></td>
+          <td class="c-price" data-l="Prezzo">Ingresso libero</td>
+          <td class="c-addr" data-l="Indirizzo">Largo Maradona, Via Emanuele De Deo 49</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">2</span></td>
+          <td class="c-name" data-l="Luogo">Cappella Sansevero</td>
+          <td class="c-desc" data-l="Descrizione">Il <em>Cristo velato</em> di Giuseppe Sanmartino — il velo di marmo più famoso d’Europa — sotto la volta affrescata voluta da Raimondo di Sangro, principe alchimista, insieme alle Macchine anatomiche.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:00 – 19:00</span><span class="tag shut">Chiuso il martedì</span></td>
+          <td class="c-price" data-l="Prezzo">A pagamento<em>tariffa e prenotazione sul sito ufficiale</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via Francesco de Sanctis 19/21</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">3</span></td>
+          <td class="c-name" data-l="Luogo">Spaccanapoli</td>
+          <td class="c-desc" data-l="Descrizione">Il decumano inferiore greco-romano: un taglio dritto che divide in due il centro antico, da Piazza del Gesù fino a Via Vicaria Vecchia, cambiando nome cinque volte lungo il percorso.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">Sempre percorribile</span><span class="tag ok">Aperto tutti i giorni</span></td>
+          <td class="c-price" data-l="Prezzo">Ingresso libero</td>
+          <td class="c-addr" data-l="Indirizzo">Da Piazza del Gesù a Via Vicaria Vecchia</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">4</span></td>
+          <td class="c-name" data-l="Luogo">Mercato della Pignasecca</td>
+          <td class="c-desc" data-l="Descrizione">Il mercato più antico della città, a due passi da Via Toledo: banchi di pesce, frutta, salumi e formaggi lungo una strada stretta, con le voci dei venditori che fanno da sottofondo.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">Mattina, in genere fino alle 14</span><em>tutti i giorni, la domenica ridotto</em></td>
+          <td class="c-price" data-l="Prezzo">Ingresso libero</td>
+          <td class="c-addr" data-l="Indirizzo">Via Pignasecca, Montesanto</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">5</span></td>
+          <td class="c-name" data-l="Luogo">Mercato dei Vergini</td>
+          <td class="c-desc" data-l="Descrizione">Mercato di strada quotidiano nel cuore del Rione Sanità, sotto i palazzi barocchi e la scala a doppia rampa del Vanvitelli a Palazzo dello Spagnolo.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">Mattina</span><em>dal lunedì al sabato</em></td>
+          <td class="c-price" data-l="Prezzo">Ingresso libero</td>
+          <td class="c-addr" data-l="Indirizzo">Via dei Vergini, Rione Sanità</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">6</span></td>
+          <td class="c-name" data-l="Luogo">Mercato di Antignano</td>
+          <td class="c-desc" data-l="Descrizione">Il mercato del Vomero, l’unico su in collina: banchi di alimentari, casalinghi e abbigliamento nel vecchio casale di Antignano, inglobato dal quartiere umbertino.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">Mattina</span><em>dal lunedì al sabato</em></td>
+          <td class="c-price" data-l="Prezzo">Ingresso libero</td>
+          <td class="c-addr" data-l="Indirizzo">Largo Antignano, Vomero</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">7</span></td>
+          <td class="c-name" data-l="Luogo">Mercato di Porta Nolana</td>
+          <td class="c-desc" data-l="Descrizione">Il mercato del pesce sotto la porta aragonese: casse di alici e polpi vivi dalle prime ore, e bancarelle che arrivano fin sotto la Stazione Centrale.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">Dalle prime ore al primo pomeriggio</span><em>tutti i giorni</em></td>
+          <td class="c-price" data-l="Prezzo">Ingresso libero</td>
+          <td class="c-addr" data-l="Indirizzo">Piazza Nolana / Via Sopramuro</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">8</span></td>
+          <td class="c-name" data-l="Luogo">San Gregorio Armenio</td>
+          <td class="c-desc" data-l="Descrizione">La strada dei pastori: botteghe di figurari aperte tutto l’anno, fra il decumano maggiore e Spaccanapoli. A dicembre diventa impraticabile, ed è proprio quello il bello.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">In genere 09:00 – 19:00</span><em>botteghe aperte tutti i giorni</em></td>
+          <td class="c-price" data-l="Prezzo">Ingresso libero</td>
+          <td class="c-addr" data-l="Indirizzo">Via San Gregorio Armenio</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <p><b>Gli orari di questa pagina sono indicativi.</b> I mercati di strada non pubblicano un orario fisso: aprono presto, smontano quando hanno finito, e cambiano con la stagione e con il tempo. Consideratele indicazioni di massima, non appuntamenti.</p>
+    <p>La Cappella Sansevero è l’unica a pagamento delle otto, e richiede la prenotazione: tariffa e disponibilità vanno verificate sul sito ufficiale.</p>
+    <p><a href="tabella.html">&larr; I diciotto musei</a> &nbsp;&middot;&nbsp; <a href="mappa.html">La mappa</a></p>
+  </footer>
+</div>
+</body>
+</html>
