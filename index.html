@@ -30,7 +30,7 @@
   --ink:#22241F; --ink-soft:#6B6E62; --ink-faint:#93968A;
   --rule:#D6D4C6; --rule-soft:#E3E1D5;
   --z1:#B33A2B; --z2:#2F5A78; --z3:#57783A; --z4:#B5851A;
-  --zstay:#8A3E6E; --marker-ring:#FBFAF6;
+  --zstay:#8A3E6E; --zluo:#0C93C9; --marker-ring:#FBFAF6;
   --shadow:0 1px 2px rgba(34,36,31,.07), 0 6px 18px rgba(34,36,31,.06);
 }
 @media (prefers-color-scheme: dark){
@@ -41,7 +41,7 @@
     --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
     --rule:#34383A; --rule-soft:#282C2E;
     --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
-    --zstay:#D888B8; --marker-ring:#15171A;
+    --zstay:#D888B8; --zluo:#4FC2EE; --marker-ring:#15171A;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
   }
 }
@@ -52,7 +52,7 @@
   --ink:#EAE8DE; --ink-soft:#A3A79A; --ink-faint:#7A7E72;
   --rule:#34383A; --rule-soft:#282C2E;
   --z1:#E0705A; --z2:#79AACC; --z3:#9EC06C; --z4:#E5B84E;
-  --zstay:#D888B8; --marker-ring:#15171A;
+  --zstay:#D888B8; --zluo:#4FC2EE; --marker-ring:#15171A;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
 }
 
@@ -81,7 +81,7 @@ h1 em{font-style:italic;color:var(--z1)}
 /* ---- map card ---- */
 .mapcard{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:22px;align-items:center;
   background:var(--surface);border:1px solid var(--rule);border-radius:4px;
-  padding:20px 22px;margin-bottom:34px;text-decoration:none;color:inherit;
+  padding:20px 22px;margin-bottom:12px;text-decoration:none;color:inherit;
   box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
 .mapcard:hover{border-color:var(--ink-faint);transform:translateY(-1px)}
 .mapcard:focus-visible{outline:2px solid var(--z2);outline-offset:3px}
@@ -134,23 +134,26 @@ h1 em{font-style:italic;color:var(--z1)}
 .secnote{margin:14px 0 0;font-size:13px;line-height:1.55;color:var(--ink-faint);max-width:74ch}
 .secnote b{color:var(--ink-soft);font-weight:600}
 
-/* ---- link alla tabella completa ---- */
-.tablecard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;
-  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
-  padding:18px 22px;margin:0 0 30px;text-decoration:none;color:inherit;
-  box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
-.tablecard:hover{border-color:var(--ink-faint);transform:translateY(-1px)}
-.tablecard:focus-visible{outline:2px solid var(--z2);outline-offset:3px}
-.tablecard .kicker{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+/* ---- le due schede di rimando ---- */
+.cardrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 34px}
+@media (max-width:700px){.cardrow{grid-template-columns:1fr}}
+.linkcard{display:flex;flex-direction:column;background:var(--surface);
+  border:1px solid var(--rule);border-radius:4px;padding:18px 20px;
+  text-decoration:none;color:inherit;box-shadow:var(--shadow);
+  transition:border-color .15s,transform .15s}
+.linkcard:hover{border-color:var(--ink-faint);transform:translateY(-1px)}
+.linkcard:focus-visible{outline:2px solid var(--z2);outline-offset:3px}
+.linkcard .kicker{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink-faint);font-weight:700;margin:0 0 7px}
-.tablecard h2{margin:0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
-  font-weight:500;font-size:24px;line-height:1.15;letter-spacing:-.005em}
-.tablecard p{margin:8px 0 0;font-size:14.5px;color:var(--ink-soft);line-height:1.45;max-width:58ch}
-.tablecard .go{display:inline-block;margin-top:11px;font-size:13.5px;font-weight:600;
-  color:var(--z1);letter-spacing:.02em}
-.tablecard .pins{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.tablecard .pins i{width:17px;height:17px;border-radius:50%;background:var(--c);display:block}
-@media (max-width:560px){.tablecard{grid-template-columns:1fr}.tablecard .pins{display:none}}
+.linkcard h2{margin:0;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
+  font-weight:500;font-size:23px;line-height:1.16;letter-spacing:-.005em}
+.linkcard p{margin:8px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.45;flex:1}
+.linkcard .marks{display:flex;gap:7px;margin-top:15px;align-self:flex-start}
+.linkcard .marks i{width:19px;height:19px;border-radius:50%;background:var(--c);display:block;flex:none}
+.linkcard .marks i.dia{border-radius:0;width:21px;height:21px;
+  clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%)}
+.linkcard .go{margin-top:11px;align-self:flex-start;
+  font-size:13.5px;font-weight:600;color:var(--z1);letter-spacing:.02em}
 
 /* ---- totals ---- */
 .totals{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
@@ -194,12 +197,29 @@ footer a{color:var(--ink-soft)}
   <a class="mapcard" href="mappa.html">
     <div>
       <p class="kicker">La mappa</p>
-      <h2>Diciotto musei sulle loro coordinate reali</h2>
-      <p>Musei e complessi monumentali, Piazza del Plebiscito, Castel dell&rsquo;Ovo e la Stazione Centrale come riferimenti, l&rsquo;hotel di Via dei Fiorentini con le distanze in linea d&rsquo;aria, e le linee 1, 2 e 6 della metropolitana con le tre funicolari.</p>
+      <h2>Ventisei luoghi sulle loro coordinate reali</h2>
+      <p>Musei e complessi monumentali, Piazza del Plebiscito, Castel dell&rsquo;Ovo e la Stazione Centrale come riferimenti, l&rsquo;hotel di Via dei Fiorentini con le distanze in linea d&rsquo;aria, gli otto fra strade e mercati, e le linee 1, 2 e 6 della metropolitana con le tre funicolari.</p>
       <span class="go">Apri la mappa &rarr;</span>
     </div>
-    <div class="thumb"><svg viewBox="0 0 1000 1082" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Miniatura della mappa dei musei"><rect width="1000" height="1082" fill="var(--sea)"/><path d="M-10 -10 L1010 -10 L1010 635  L1164 635C1136 637,1050 645,1000 649C950 653,908 654,865 659C823 663,780 671,745 678C711 685,682 691,658 702C635 712,620 726,604 740C587 755,575 771,560 788C545 806,525 826,513 846C500 866,492 889,484 909C475 928,468 948,460 964C452 979,445 999,433 1002C420 1006,404 991,385 985C367 980,345 968,324 969C302 969,286 986,258 990C230 994,192 993,155 993C118 992,80 990,36 988C-8 985,-85 980,-109 978 L-10 978 Z" fill="var(--land)"/><path d="M149 524C182 516,250 532,287 548C324 564,359 590,371 620C382 650,373 696,356 726C340 756,307 788,273 798C238 808,180 804,149 788C118 772,98 734,87 702C77 670,77 626,87 596C98 566,116 532,149 524Z" fill="var(--land-hi)"/><path d="M176 577C197 572,239 582,262 592C285 602,306 618,314 636C321 655,315 684,305 702C294 720,274 740,253 747C231 753,195 751,176 741C157 731,144 707,138 687C131 667,131 640,138 621C144 603,155 582,176 577Z" fill="var(--land-hi2)"/><path d="M345 -14C391 -26,539 -18,593 -5C646 9,660 38,665 67C671 97,655 149,625 173C596 197,532 214,487 212C443 209,388 183,360 159C332 135,322 96,320 67C318 38,300 -2,345 -14Z" fill="var(--land-hi)"/><path d="M399 27C427 19,519 24,552 33C585 41,594 59,597 77C600 96,591 128,572 143C554 158,514 168,486 167C459 165,425 149,408 134C390 119,384 95,383 77C381 60,370 34,399 27Z" fill="var(--land-hi2)"/><path d="M-109 978C-85 980,-8 985,36 988C80 990,118 992,155 993C192 993,230 994,258 990C286 986,302 969,324 969C345 968,367 980,385 985C404 991,420 1006,433 1002C445 999,452 979,460 964C468 948,475 928,484 909C492 889,500 866,513 846C525 826,545 806,560 788C575 771,587 755,604 740C620 726,635 712,658 702C682 691,711 685,745 678C780 671,823 663,865 659C908 654,950 653,1000 649C1050 645,1136 637,1164 635" fill="none" stroke="var(--road-case)" stroke-width="3" opacity=".6"/><circle cx="484" cy="401" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="664" cy="365" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="640" cy="392" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="649" cy="425" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="565" cy="462" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="636" cy="500" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="451" cy="663" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="496" cy="663" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="540" cy="630" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="522" cy="764" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="464" cy="810" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="453" cy="772" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="485" cy="62" r="26" fill="var(--z3)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="309" cy="630" r="26" fill="var(--z3)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="273" cy="608" r="26" fill="var(--z3)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="145" cy="774" r="26" fill="var(--z3)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="182" cy="925" r="26" fill="var(--z4)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="185" cy="868" r="26" fill="var(--z4)" stroke="var(--marker-ring)" stroke-width="7"/></svg></div>
+    <div class="thumb"><svg viewBox="0 0 1000 1082" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Miniatura della mappa dei musei"><rect width="1000" height="1082" fill="var(--sea)"/><path d="M-10 -10 L1010 -10 L1010 635  L1164 635C1136 637,1050 645,1000 649C950 653,908 654,865 659C823 663,780 671,745 678C711 685,682 691,658 702C635 712,620 726,604 740C587 755,575 771,560 788C545 806,525 826,513 846C500 866,492 889,484 909C475 928,468 948,460 964C452 979,445 999,433 1002C420 1006,404 991,385 985C367 980,345 968,324 969C302 969,286 986,258 990C230 994,192 993,155 993C118 992,80 990,36 988C-8 985,-85 980,-109 978 L-10 978 Z" fill="var(--land)"/><path d="M149 524C182 516,250 532,287 548C324 564,359 590,371 620C382 650,373 696,356 726C340 756,307 788,273 798C238 808,180 804,149 788C118 772,98 734,87 702C77 670,77 626,87 596C98 566,116 532,149 524Z" fill="var(--land-hi)"/><path d="M176 577C197 572,239 582,262 592C285 602,306 618,314 636C321 655,315 684,305 702C294 720,274 740,253 747C231 753,195 751,176 741C157 731,144 707,138 687C131 667,131 640,138 621C144 603,155 582,176 577Z" fill="var(--land-hi2)"/><path d="M345 -14C391 -26,539 -18,593 -5C646 9,660 38,665 67C671 97,655 149,625 173C596 197,532 214,487 212C443 209,388 183,360 159C332 135,322 96,320 67C318 38,300 -2,345 -14Z" fill="var(--land-hi)"/><path d="M399 27C427 19,519 24,552 33C585 41,594 59,597 77C600 96,591 128,572 143C554 158,514 168,486 167C459 165,425 149,408 134C390 119,384 95,383 77C381 60,370 34,399 27Z" fill="var(--land-hi2)"/><path d="M-109 978C-85 980,-8 985,36 988C80 990,118 992,155 993C192 993,230 994,258 990C286 986,302 969,324 969C345 968,367 980,385 985C404 991,420 1006,433 1002C445 999,452 979,460 964C468 948,475 928,484 909C492 889,500 866,513 846C525 826,545 806,560 788C575 771,587 755,604 740C620 726,635 712,658 702C682 691,711 685,745 678C780 671,823 663,865 659C908 654,950 653,1000 649C1050 645,1136 637,1164 635" fill="none" stroke="var(--road-case)" stroke-width="3" opacity=".6"/><circle cx="484" cy="401" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="664" cy="365" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="640" cy="392" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="649" cy="425" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="565" cy="462" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="636" cy="500" r="26" fill="var(--z1)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="451" cy="663" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="496" cy="663" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="540" cy="630" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="522" cy="764" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="464" cy="810" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="453" cy="772" r="26" fill="var(--z2)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="485" cy="62" r="26" fill="var(--z3)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="309" cy="630" r="26" fill="var(--z3)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="273" cy="608" r="26" fill="var(--z3)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="145" cy="774" r="26" fill="var(--z3)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="182" cy="925" r="26" fill="var(--z4)" stroke="var(--marker-ring)" stroke-width="7"/><circle cx="185" cy="868" r="26" fill="var(--z4)" stroke="var(--marker-ring)" stroke-width="7"/><path d="M397 630 L423 656 L397 682 L371 656 Z" fill="var(--zluo)" stroke="var(--marker-ring)" stroke-width="7"/><path d="M555 469 L581 495 L555 521 L529 495 Z" fill="var(--zluo)" stroke="var(--marker-ring)" stroke-width="7"/><path d="M511 498 L537 524 L511 550 L485 524 Z" fill="var(--zluo)" stroke="var(--marker-ring)" stroke-width="7"/><path d="M449 582 L475 608 L449 634 L423 608 Z" fill="var(--zluo)" stroke="var(--marker-ring)" stroke-width="7"/><path d="M536 291 L562 317 L536 343 L510 317 Z" fill="var(--zluo)" stroke="var(--marker-ring)" stroke-width="7"/><path d="M85 479 L111 505 L85 531 L59 505 Z" fill="var(--zluo)" stroke="var(--marker-ring)" stroke-width="7"/><path d="M827 498 L853 524 L827 550 L801 524 Z" fill="var(--zluo)" stroke="var(--marker-ring)" stroke-width="7"/><path d="M595 432 L621 458 L595 484 L569 458 Z" fill="var(--zluo)" stroke="var(--marker-ring)" stroke-width="7"/></svg></div>
   </a>
+
+  <div class="cardrow">
+    <a class="linkcard" href="tabella.html">
+      <p class="kicker">Tabella musei</p>
+      <h2>Tutte e diciotto le sedi</h2>
+      <p>Descrizione, orari giorno per giorno, prezzo e indirizzo di ogni museo, nello stesso ordine dei segnaposto della mappa.</p>
+      <span class="marks" aria-hidden="true"><i style="--c:var(--z1)"></i><i style="--c:var(--z2)"></i><i style="--c:var(--z3)"></i><i style="--c:var(--z4)"></i></span>
+      <span class="go">Apri la tabella &rarr;</span>
+    </a>
+    <a class="linkcard" href="luoghi.html">
+      <p class="kicker">Luoghi e mercati</p>
+      <h2>Otto tappe fuori dai musei</h2>
+      <p>Una strada greca, quattro mercati, la bottega dei pastori e il murales di Maradona: cosa sono, quando ci si va, quanto costano.</p>
+      <span class="marks" aria-hidden="true"><i class="dia" style="--c:var(--zluo)"></i><i class="dia" style="--c:var(--zluo)"></i><i class="dia" style="--c:var(--zluo)"></i><i class="dia" style="--c:var(--zluo)"></i></span>
+      <span class="go">Apri l&rsquo;elenco &rarr;</span>
+    </a>
+  </div>
 
   <section class="sec">
     <div class="sechead"><h2>I Top 5 Musei</h2><span class="cnt">5 sedi</span></div>
@@ -207,16 +227,6 @@ footer a{color:var(--ink-soft)}
     <p class="secnote"><b>Orari:</b> nei musei statali (MANN, Capodimonte, Palazzo Reale, San Martino) l’ultimo ingresso è consentito fino a un’ora prima della chiusura. <b>Riduzioni:</b> negli stessi musei il ridotto UE 18–25 costa 2,00 €; al Tesoro di San Gennaro il ridotto è di 11,00 €.</p>
   </section>
 
-
-  <a class="tablecard" href="tabella.html">
-    <div>
-      <p class="kicker">Tabella completa</p>
-      <h2>Tutte e diciotto le sedi, riga per riga</h2>
-      <p>Indirizzo, orari giorno per giorno, prezzo intero e ridotto e una descrizione per ciascun museo, nello stesso ordine dei segnaposto della mappa.</p>
-      <span class="go">Apri la tabella &rarr;</span>
-    </div>
-    <span class="pins" aria-hidden="true"><i style="--c:var(--z1)"></i><i style="--c:var(--z2)"></i><i style="--c:var(--z3)"></i><i style="--c:var(--z4)"></i></span>
-  </a>
 
   <div class="totals" id="totals"></div>
 
