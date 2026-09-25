@@ -88,13 +88,13 @@ tbody tr:hover{background:var(--surface-2)}
 .c-num{width:56px;text-align:center;padding-inline:10px}
 .c-name{width:17%;min-width:170px;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
   font-weight:500;font-size:18px;line-height:1.22}
-.c-desc{width:36%;min-width:280px;font-size:14px;color:var(--ink-soft);line-height:1.5}
+.c-desc{width:36%;min-width:280px;font-size:15.5px;color:var(--ink-soft);line-height:1.55}
 .c-desc em{font-style:italic;color:var(--ink)}
-.c-when{width:15%;min-width:150px;font-size:13.5px;color:var(--ink-soft)}
+.c-when{width:15%;min-width:160px;font-size:14.5px;color:var(--ink-soft)}
 .c-when .hrs{display:block;font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:.01em}
-.c-price{width:13%;min-width:130px;font-size:16.5px;font-weight:600;
+.c-price{width:13%;min-width:130px;font-size:17.5px;font-weight:600;
   font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.c-addr{width:15%;min-width:140px;font-size:13px;color:var(--ink-faint)}
+.c-addr{width:15%;min-width:150px;font-size:14px;color:var(--ink-faint)}
 .c-when em,.c-price em{display:block;font-style:normal;font-weight:400;
   font-size:12.5px;letter-spacing:0;color:var(--ink-faint);margin-top:4px}
 .tag{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.09em;
@@ -113,7 +113,7 @@ tbody tr:hover{background:var(--surface-2)}
   tbody tr:hover{background:var(--surface)}
   td{display:block;width:auto!important;min-width:0!important;padding:0;border:0}
   .c-num{grid-row:1/span 5;text-align:left;padding:0;margin-top:2px}
-  .c-name{font-size:19.5px}
+  .c-name{font-size:20.5px}
   .c-desc,.c-when,.c-price,.c-addr{margin-top:11px}
   .c-desc::before,.c-when::before,.c-price::before,.c-addr::before{
     content:attr(data-l);display:block;font-family:'Archivo',sans-serif;
@@ -126,6 +126,12 @@ footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--rule);
 footer p{margin:0 0 7px}
 footer a{color:var(--ink-soft)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+    td.c-name a.wiki{display:block;margin-top:7px;font-family:'Jost',sans-serif;font-size:12.5px;
+      font-weight:400;color:var(--card);text-decoration:none;border-bottom:1px solid transparent}
+    td.c-name a.wiki:hover{border-bottom-color:var(--card)}
+    td.c-name span.nowiki{display:block;margin-top:7px;font-family:'Jost',sans-serif;font-size:11px;
+      font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
 </style>
 </head>
 <body>
@@ -143,7 +149,7 @@ footer a{color:var(--ink-soft)}
   <header class="masthead">
     <p class="eyebrow">Tabella completa &middot; 18 sedi</p>
     <h1>Musei di <em>Napoli</em></h1>
-    <p class="standfirst">Tutte le sedi in un colpo d&rsquo;occhio, nell&rsquo;ordine dei segnaposto della <a href="mappa.html">mappa</a>: il numero colorato di ogni riga &egrave; lo stesso che trovi sulla carta, con il colore del suo quartiere.</p>
+    <p class="standfirst"><b>I musei e i complessi monumentali</b>, quelli che in gran parte rientrano nel circuito <b>Campania&gt;Artecard</b>: la card dà i primi ingressi gratuiti e poi lo sconto, ma l’elenco esatto cambia nel tempo, quindi conviene controllarlo sul sito ufficiale prima di comprarla. Sono nell’ordine dei segnaposto della <a href="mappa.html">mappa</a>: il numero colorato di ogni riga &egrave; lo stesso che trovi sulla carta, con il colore del suo quartiere.</p>
     <ul class="legend">
       <li style="--c:var(--z1)"><i></i>1&ndash;5 &nbsp;Centro antico</li>
       <li style="--c:var(--z2)"><i></i>6&ndash;12 &nbsp;Toledo, Monteoliveto e il porto</li>
@@ -167,7 +173,7 @@ footer a{color:var(--ink-soft)}
       <tbody>
         <tr>
           <td class="c-num"><span class="badge z1">1</span></td>
-          <td class="c-name" data-l="Museo">Museo Archeologico Nazionale di Napoli (MANN)</td>
+          <td class="c-name" data-l="Museo">Museo Archeologico Nazionale di Napoli (MANN)<a class="wiki" href="https://it.wikipedia.org/wiki/Museo_archeologico_nazionale_di_Napoli" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Uno dei musei archeologici più importanti al mondo. Custodisce le collezioni di affreschi, mosaici e sculture di Pompei ed Ercolano e la Collezione Farnese.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:00 – 19:30</span><span class="tag shut">Chiuso il martedì</span></td>
           <td class="c-price" data-l="Prezzo">20,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
@@ -175,7 +181,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z1">2</span></td>
-          <td class="c-name" data-l="Museo">MADRE – Museo d’Arte Contemporanea Donnaregina</td>
+          <td class="c-name" data-l="Museo">MADRE – Museo d’Arte Contemporanea Donnaregina<a class="wiki" href="https://it.wikipedia.org/wiki/Museo_d%27arte_contemporanea_Donnaregina" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Polo d'eccellenza per l'arte contemporanea a Napoli, ospitato nello storico Palazzo Donnaregina nel cuore del centro antico.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 19:30 (Lun, Mer-Sab)<br>10:00 – 20:00 (Dom)</span><span class="tag shut">Chiuso il martedì</span></td>
           <td class="c-price" data-l="Prezzo">8,00 €<em>Ridotto: 4,00 €</em></td>
@@ -183,7 +189,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z1">3</span></td>
-          <td class="c-name" data-l="Museo">Museo Diocesano di Napoli (Complesso Donnaregina)</td>
+          <td class="c-name" data-l="Museo">Museo Diocesano di Napoli (Complesso Donnaregina)<a class="wiki" href="https://it.wikipedia.org/wiki/Museo_diocesano_(Napoli)" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Complesso monumentale che unisce la Chiesa Nuova e la Chiesa Vecchia di Donnaregina con una vasta raccolta d'arte sacra.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 16:30 (Lun, Mer-Sab)<br>09:30 – 14:00 (Dom)</span><span class="tag shut">Chiuso il martedì</span></td>
           <td class="c-price" data-l="Prezzo">7,00 €<em>Ridotto: 5,00 €</em></td>
@@ -191,7 +197,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z1">4</span></td>
-          <td class="c-name" data-l="Museo">Museo del Tesoro di San Gennaro</td>
+          <td class="c-name" data-l="Museo">Museo del Tesoro di San Gennaro<a class="wiki" href="https://it.wikipedia.org/wiki/Tesoro_di_san_Gennaro" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Adiacente al Duomo, custodisce un patrimonio inestimabile di gioielli, argenti e calici donati al patrono nei secoli, tra cui la famosissima Collana di San Gennaro.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 18:30</span><span class="tag ok">Aperto tutti i giorni</span></td>
           <td class="c-price" data-l="Prezzo">15,00 €<em>Audioguida inclusa; Ridotto: 11,00 €</em></td>
@@ -199,7 +205,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z1">5</span></td>
-          <td class="c-name" data-l="Museo">Museo Civico Gaetano Filangieri</td>
+          <td class="c-name" data-l="Museo">Museo Civico Gaetano Filangieri<a class="wiki" href="https://it.wikipedia.org/wiki/Museo_civico_Gaetano_Filangieri" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Raccolta d'arte eclettica creata dal principe Gaetano Filangieri, con dipinti, armature, sculture, porcellane e manoscritti rari.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 16:00 (Mar-Sab)<br>10:00 – 14:00 (Dom)</span><span class="tag shut">Chiuso il lunedì</span></td>
           <td class="c-price" data-l="Prezzo">5,00 €<em>Ridotto: 3,00 €</em></td>
@@ -207,7 +213,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z2">6</span></td>
-          <td class="c-name" data-l="Museo">Gallerie d’Italia – Napoli</td>
+          <td class="c-name" data-l="Museo">Gallerie d’Italia – Napoli<a class="wiki" href="https://it.wikipedia.org/wiki/Gallerie_d%27Italia" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Polo museale di Intesa Sanpaolo in Via Toledo. Custodisce l'ultimo capolavoro di Caravaggio (<em>Martirio di sant'Orsola</em>) e collezioni d'arte dal '600 al '900.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 19:00 (Mar-Ven)<br>10:00 – 20:00 (Sab-Dom)</span><span class="tag shut">Chiuso il lunedì</span></td>
           <td class="c-price" data-l="Prezzo">8,00 €<em>Ridotto: 4,00 €; Gratuito under 26</em></td>
@@ -215,7 +221,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z2">7</span></td>
-          <td class="c-name" data-l="Museo">Complesso Monumentale Sant’Anna dei Lombardi</td>
+          <td class="c-name" data-l="Museo">Complesso Monumentale Sant’Anna dei Lombardi<a class="wiki" href="https://it.wikipedia.org/wiki/Chiesa_di_Sant%27Anna_dei_Lombardi" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Celebre per la splendida Sagrestia del Vasari interamente affrescata e per il <em>Compianto sul Cristo Morto</em>, capolavoro scultoreo di Guido Mazzoni.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 18:30 (Lun-Sab)<br>12:30 – 17:30 (Dom)</span></td>
           <td class="c-price" data-l="Prezzo">6,00 €<em>Ridotto: 4,00 €</em></td>
@@ -223,7 +229,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z2">8</span></td>
-          <td class="c-name" data-l="Museo">Complesso Monumentale di S. Maria La Nova</td>
+          <td class="c-name" data-l="Museo">Complesso Monumentale di S. Maria La Nova<a class="wiki" href="https://it.wikipedia.org/wiki/Chiesa_di_Santa_Maria_La_Nova" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Storico complesso francescano del XIV secolo, famoso per i suoi chiostri, la chiesa barocca ricca di affreschi e la presunta tomba di Vlad III (Dracula).</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 15:00 (Lun-Ven)<br>09:30 – 14:00 (Sab-Dom)</span></td>
           <td class="c-price" data-l="Prezzo">5,00 €<em>Ridotto: 3,00 €</em></td>
@@ -231,7 +237,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z2">9</span></td>
-          <td class="c-name" data-l="Museo">Museo ARCA – Arte e Religiosa Contemporanea</td>
+          <td class="c-name" data-l="Museo">Museo ARCA – Arte e Religiosa Contemporanea<span class="nowiki">niente voce Wikipedia</span></td>
           <td class="c-desc" data-l="Descrizione">Spazio espositivo situato all'interno del complesso di Santa Maria la Nova dedicato al dialogo tra spiritualità e linguaggi artistici contemporanei.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 15:00 (Lun-Ven)<br>09:30 – 14:00 (Sab-Dom)</span></td>
           <td class="c-price" data-l="Prezzo">5,00 €<em>Incluso nel biglietto di S. Maria la Nova</em></td>
@@ -239,7 +245,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z2">10</span></td>
-          <td class="c-name" data-l="Museo">Museo Civico di Castel Nuovo (Maschio Angioino)</td>
+          <td class="c-name" data-l="Museo">Museo Civico di Castel Nuovo (Maschio Angioino)<a class="wiki" href="https://it.wikipedia.org/wiki/Maschio_Angioino" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Sede del Museo Civico nella storica fortezza medievale di Napoli, che include la Cappella Palatina, la Sala dei Baroni e la galleria di sculture e dipinti.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 18:30 (Mar-Sab)</span><em>Domenica orario ridotto/eventi</em></td>
           <td class="c-price" data-l="Prezzo">6,00 €<em>Gratuito under 18</em></td>
@@ -247,7 +253,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z2">11</span></td>
-          <td class="c-name" data-l="Museo">Palazzo Reale di Napoli</td>
+          <td class="c-name" data-l="Museo">Palazzo Reale di Napoli<a class="wiki" href="https://it.wikipedia.org/wiki/Palazzo_Reale_(Napoli)" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Storica residenza dei viceré e dei re di Borbone affacciata su Piazza del Plebiscito, celebre per lo Scalone d'Onore e gli Appartamenti Storici.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:00 – 20:00</span><span class="tag shut">Chiuso il mercoledì</span></td>
           <td class="c-price" data-l="Prezzo">10,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
@@ -255,7 +261,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z2">12</span></td>
-          <td class="c-name" data-l="Museo">Museo del Corallo Ascione</td>
+          <td class="c-name" data-l="Museo">Museo del Corallo Ascione<span class="nowiki">niente voce Wikipedia</span></td>
           <td class="c-desc" data-l="Descrizione">Esposizione collocata di fronte al Teatro San Carlo, dedicata all'antica tradizione artigianale della lavorazione del corallo e dei cammei.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 13:00 / 16:00 – 19:00 (Mar-Sab)</span><em>Lunedì e Domenica su prenotazione</em></td>
           <td class="c-price" data-l="Prezzo">5,00 €</td>
@@ -263,7 +269,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z3">13</span></td>
-          <td class="c-name" data-l="Museo">Museo e Real Bosco di Capodimonte</td>
+          <td class="c-name" data-l="Museo">Museo e Real Bosco di Capodimonte<a class="wiki" href="https://it.wikipedia.org/wiki/Museo_nazionale_di_Capodimonte" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Galleria Nazionale all'interno di una reggia borbonica. Conserva capolavori di Caravaggio, Tiziano, Raffaello e Parmigianino immersa in un immenso parco.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 19:30</span><span class="tag shut">Chiuso il mercoledì</span></td>
           <td class="c-price" data-l="Prezzo">15,00 €<em>Ridotto UE 18-25: 2,00 €; Bosco gratuito</em></td>
@@ -271,7 +277,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z3">14</span></td>
-          <td class="c-name" data-l="Museo">Certosa e Museo di San Martino</td>
+          <td class="c-name" data-l="Museo">Certosa e Museo di San Martino<a class="wiki" href="https://it.wikipedia.org/wiki/Certosa_di_San_Martino" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Capolavoro del barocco napoletano sulla collina del Vomero. Ospita la più importante sezione al mondo di arte presepiale (tra cui il Presepe Cuciniello).</td>
           <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 18:30</span><span class="tag shut">Chiuso il mercoledì</span></td>
           <td class="c-price" data-l="Prezzo">6,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
@@ -279,7 +285,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z3">15</span></td>
-          <td class="c-name" data-l="Museo">Castel Sant’Elmo</td>
+          <td class="c-name" data-l="Museo">Castel Sant’Elmo<a class="wiki" href="https://it.wikipedia.org/wiki/Castel_Sant%27Elmo" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Imponente fortezza medievale a pianta stellare sulla collina del Vomero, famosa per la vista panoramica a 360° sulla città e il golfo. Ospita anche il Museo del '900.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 19:30</span><span class="tag ok">Aperto tutti i giorni</span></td>
           <td class="c-price" data-l="Prezzo">5,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
@@ -287,7 +293,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z3">16</span></td>
-          <td class="c-name" data-l="Museo">Museo della Ceramica Duca di Martina (Villa Floridiana)</td>
+          <td class="c-name" data-l="Museo">Museo della Ceramica Duca di Martina (Villa Floridiana)<a class="wiki" href="https://it.wikipedia.org/wiki/Villa_Floridiana" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Situato nel parco della Floridiana al Vomero, conserva una delle maggiori collezioni italiane di arti decorative, porcellane europee ed orientali.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">08:30 – 17:00</span><span class="tag shut">Chiuso il martedì</span></td>
           <td class="c-price" data-l="Prezzo">4,00 €<em>Ridotto UE 18-25: 2,00 €; Parco gratuito</em></td>
@@ -295,7 +301,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z4">17</span></td>
-          <td class="c-name" data-l="Museo">Museo Pignatelli Cortes</td>
+          <td class="c-name" data-l="Museo">Museo Pignatelli Cortes<a class="wiki" href="https://it.wikipedia.org/wiki/Villa_Pignatelli" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Elegante villa neoclassica del quartiere Chiaia, con appartamenti storici, parco monumentale e il Museo delle Carrozze.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:30 – 17:00</span><span class="tag shut">Chiuso il martedì</span></td>
           <td class="c-price" data-l="Prezzo">5,00 €<em>Ridotto UE 18-25: 2,00 €</em></td>
@@ -303,7 +309,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge z4">18</span></td>
-          <td class="c-name" data-l="Museo">Fondazione PLART – Plastiche e Arte</td>
+          <td class="c-name" data-l="Museo">Fondazione PLART – Plastiche e Arte<span class="nowiki">niente voce Wikipedia</span></td>
           <td class="c-desc" data-l="Descrizione">Centro di ricerca e museo unico nel suo genere, dedicato al design, alla storia e al restauro delle opere realizzate in plastica e polimeri.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">10:00 – 13:00 / 15:00 – 18:00 (Mar-Ven)<br>10:00 – 13:00 (Sab)</span><span class="tag shut">Chiuso Dom e Lun</span></td>
           <td class="c-price" data-l="Prezzo">8,00 €<em>Ridotto: 5,00 €</em></td>

@@ -91,13 +91,13 @@ tbody tr:hover{background:var(--surface-2)}
 .c-num{width:56px;text-align:center;padding-inline:10px}
 .c-name{width:17%;min-width:170px;font-family:'Bodoni Moda',Didot,'Times New Roman',serif;
   font-weight:500;font-size:18px;line-height:1.22}
-.c-desc{width:36%;min-width:280px;font-size:14px;color:var(--ink-soft);line-height:1.5}
+.c-desc{width:36%;min-width:280px;font-size:15.5px;color:var(--ink-soft);line-height:1.55}
 .c-desc em{font-style:italic;color:var(--ink)}
-.c-when{width:15%;min-width:150px;font-size:13.5px;color:var(--ink-soft)}
+.c-when{width:15%;min-width:160px;font-size:14.5px;color:var(--ink-soft)}
 .c-when .hrs{display:block;font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:.01em}
-.c-price{width:13%;min-width:130px;font-size:16.5px;font-weight:600;
+.c-price{width:13%;min-width:130px;font-size:17.5px;font-weight:600;
   font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.c-addr{width:15%;min-width:140px;font-size:13px;color:var(--ink-faint)}
+.c-addr{width:15%;min-width:150px;font-size:14px;color:var(--ink-faint)}
 .c-when em,.c-price em{display:block;font-style:normal;font-weight:400;
   font-size:12.5px;letter-spacing:0;color:var(--ink-faint);margin-top:4px}
 .tag{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.09em;
@@ -116,7 +116,7 @@ tbody tr:hover{background:var(--surface-2)}
   tbody tr:hover{background:var(--surface)}
   td{display:block;width:auto!important;min-width:0!important;padding:0;border:0}
   .c-num{grid-row:1/span 5;text-align:left;padding:0;margin-top:2px}
-  .c-name{font-size:19.5px}
+  .c-name{font-size:20.5px}
   .c-desc,.c-when,.c-price,.c-addr{margin-top:11px}
   .c-desc::before,.c-when::before,.c-price::before,.c-addr::before{
     content:attr(data-l);display:block;font-family:'Archivo',sans-serif;
@@ -129,6 +129,12 @@ footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--rule);
 footer p{margin:0 0 7px}
 footer a{color:var(--ink-soft)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+    td.c-name a.wiki{display:block;margin-top:7px;font-family:'Jost',sans-serif;font-size:12.5px;
+      font-weight:400;color:var(--card);text-decoration:none;border-bottom:1px solid transparent}
+    td.c-name a.wiki:hover{border-bottom-color:var(--card)}
+    td.c-name span.nowiki{display:block;margin-top:7px;font-family:'Jost',sans-serif;font-size:11px;
+      font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
 </style>
 </head>
 <body>
@@ -144,11 +150,11 @@ footer a{color:var(--ink-soft)}
   </nav>
 
   <header class="masthead">
-    <p class="eyebrow">Musei di Napoli &middot; 8 tappe</p>
+    <p class="eyebrow">Musei di Napoli &middot; 11 tappe</p>
     <h1>Luoghi e <em>mercati</em></h1>
-    <p class="standfirst">Quello che a Napoli non sta dentro un museo: una strada greca, quattro mercati, la bottega dei pastori e un murales. Sulla <a href="mappa.html">mappa</a> sono <b>rombi azzurri</b> con una numerazione tutta loro, da 1 a 8, distinta da quella dei diciotto musei.</p>
+    <p class="standfirst"><b>Gli undici luoghi che la Campania&gt;Artecard non copre</b> — o che non sono musei affatto: una strada greca, quattro mercati, due chiese, la bottega dei pastori, il sottosuolo e un murales. Fa eccezione il complesso di <b>San Lorenzo Maggiore</b>, che nella card invece c’è: l’ho messo qui perché sta con le altre chiese del decumano, non perché sia escluso. Sulla <a href="mappa.html">mappa</a> sono <b>rombi azzurri</b> con una numerazione tutta loro, da 1 a 8, distinta da quella dei diciotto musei.</p>
     <ul class="legend">
-      <li style="--c:var(--zluo)"><i></i>Tutti e otto lo stesso colore: non sono musei</li>
+      <li style="--c:var(--zluo)"><i></i>Tutti e undici lo stesso colore</li>
     </ul>
   </header>
 
@@ -167,7 +173,7 @@ footer a{color:var(--ink-soft)}
       <tbody>
         <tr>
           <td class="c-num"><span class="badge luo">1</span></td>
-          <td class="c-name" data-l="Luogo">Largo Maradona</td>
+          <td class="c-name" data-l="Luogo">Largo Maradona<span class="nowiki">niente voce Wikipedia</span></td>
           <td class="c-desc" data-l="Descrizione">Il murales di Diego Armando Maradona, dipinto nel 1990 sul muro di un cortile dei Quartieri Spagnoli dopo il secondo scudetto e riportato a nuovo nel 2017. Il largo è diventato un santuario laico: ceri, sciarpe, ex voto.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">Sempre accessibile</span><span class="tag ok">Aperto tutti i giorni</span></td>
           <td class="c-price" data-l="Prezzo">Ingresso libero</td>
@@ -175,7 +181,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge luo">2</span></td>
-          <td class="c-name" data-l="Luogo">Cappella Sansevero</td>
+          <td class="c-name" data-l="Luogo">Cappella Sansevero<a class="wiki" href="https://it.wikipedia.org/wiki/Cappella_Sansevero" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Il <em>Cristo velato</em> di Giuseppe Sanmartino — il velo di marmo più famoso d’Europa — sotto la volta affrescata voluta da Raimondo di Sangro, principe alchimista, insieme alle Macchine anatomiche.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">09:00 – 19:00</span><span class="tag shut">Chiuso il martedì</span></td>
           <td class="c-price" data-l="Prezzo">A pagamento<em>tariffa e prenotazione sul sito ufficiale</em></td>
@@ -183,7 +189,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge luo">3</span></td>
-          <td class="c-name" data-l="Luogo">Spaccanapoli</td>
+          <td class="c-name" data-l="Luogo">Spaccanapoli<a class="wiki" href="https://it.wikipedia.org/wiki/Spaccanapoli" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Il decumano inferiore greco-romano: un taglio dritto che divide in due il centro antico, da Piazza del Gesù fino a Via Vicaria Vecchia, cambiando nome cinque volte lungo il percorso.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">Sempre percorribile</span><span class="tag ok">Aperto tutti i giorni</span></td>
           <td class="c-price" data-l="Prezzo">Ingresso libero</td>
@@ -191,7 +197,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge luo">4</span></td>
-          <td class="c-name" data-l="Luogo">Mercato della Pignasecca</td>
+          <td class="c-name" data-l="Luogo">Mercato della Pignasecca<a class="wiki" href="https://it.wikipedia.org/wiki/Pignasecca" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Il mercato più antico della città, a due passi da Via Toledo: banchi di pesce, frutta, salumi e formaggi lungo una strada stretta, con le voci dei venditori che fanno da sottofondo.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">Mattina, in genere fino alle 14</span><em>tutti i giorni, la domenica ridotto</em></td>
           <td class="c-price" data-l="Prezzo">Ingresso libero</td>
@@ -199,7 +205,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge luo">5</span></td>
-          <td class="c-name" data-l="Luogo">Mercato dei Vergini</td>
+          <td class="c-name" data-l="Luogo">Mercato dei Vergini<a class="wiki" href="https://it.wikipedia.org/wiki/Rione_Sanit%C3%A0" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Mercato di strada quotidiano nel cuore del Rione Sanità, sotto i palazzi barocchi e la scala a doppia rampa del Vanvitelli a Palazzo dello Spagnolo.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">Mattina</span><em>dal lunedì al sabato</em></td>
           <td class="c-price" data-l="Prezzo">Ingresso libero</td>
@@ -207,7 +213,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge luo">6</span></td>
-          <td class="c-name" data-l="Luogo">Mercato di Antignano</td>
+          <td class="c-name" data-l="Luogo">Mercato di Antignano<span class="nowiki">niente voce Wikipedia</span></td>
           <td class="c-desc" data-l="Descrizione">Il mercato del Vomero, l’unico su in collina: banchi di alimentari, casalinghi e abbigliamento nel vecchio casale di Antignano, inglobato dal quartiere umbertino.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">Mattina</span><em>dal lunedì al sabato</em></td>
           <td class="c-price" data-l="Prezzo">Ingresso libero</td>
@@ -215,7 +221,7 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge luo">7</span></td>
-          <td class="c-name" data-l="Luogo">Mercato di Porta Nolana</td>
+          <td class="c-name" data-l="Luogo">Mercato di Porta Nolana<a class="wiki" href="https://it.wikipedia.org/wiki/Porta_Nolana" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">Il mercato del pesce sotto la porta aragonese: casse di alici e polpi vivi dalle prime ore, e bancarelle che arrivano fin sotto la Stazione Centrale.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">Dalle prime ore al primo pomeriggio</span><em>tutti i giorni</em></td>
           <td class="c-price" data-l="Prezzo">Ingresso libero</td>
@@ -223,11 +229,35 @@ footer a{color:var(--ink-soft)}
         </tr>
         <tr>
           <td class="c-num"><span class="badge luo">8</span></td>
-          <td class="c-name" data-l="Luogo">San Gregorio Armenio</td>
+          <td class="c-name" data-l="Luogo">San Gregorio Armenio<a class="wiki" href="https://it.wikipedia.org/wiki/Via_San_Gregorio_Armeno" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
           <td class="c-desc" data-l="Descrizione">La strada dei pastori: botteghe di figurari aperte tutto l’anno, fra il decumano maggiore e Spaccanapoli. A dicembre diventa impraticabile, ed è proprio quello il bello.</td>
           <td class="c-when" data-l="Orario"><span class="hrs">In genere 09:00 – 19:00</span><em>botteghe aperte tutti i giorni</em></td>
           <td class="c-price" data-l="Prezzo">Ingresso libero</td>
           <td class="c-addr" data-l="Indirizzo">Via San Gregorio Armenio</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">9</span></td>
+          <td class="c-name" data-l="Luogo">Basilica di San Lorenzo Maggiore<a class="wiki" href="https://it.wikipedia.org/wiki/Basilica_di_San_Lorenzo_Maggiore" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
+          <td class="c-desc" data-l="Descrizione">Chiesa gotica del Trecento costruita sopra il <b>foro greco-romano</b>: sotto la navata si cammina nel macellum, il mercato coperto meglio conservato della citt&agrave;. Qui Boccaccio vide Fiammetta per la prima volta, nel 1336.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">09:30 &ndash; 17:30</span><em>orario da verificare sul sito del complesso</em></td>
+          <td class="c-price" data-l="Prezzo">A pagamento<em>la basilica &egrave; libera; gli scavi e il museo hanno biglietto</em></td>
+          <td class="c-addr" data-l="Indirizzo">Via dei Tribunali 316, Piazza San Gaetano</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">10</span></td>
+          <td class="c-name" data-l="Luogo">Napoli Sotterranea<a class="wiki" href="https://it.wikipedia.org/wiki/Sottosuolo_di_Napoli" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
+          <td class="c-desc" data-l="Descrizione">Quaranta metri sotto il decumano: cave di tufo greche diventate acquedotto romano e poi <b>rifugio antiaereo</b> nel 1943. Si visita solo con guida, e un tratto si percorre di lato con la candela.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">Visite guidate a orari fissi</span><em>turni ogni ora circa, da verificare</em></td>
+          <td class="c-price" data-l="Prezzo">A pagamento<em>solo visita guidata, tariffa da verificare</em></td>
+          <td class="c-addr" data-l="Indirizzo">Piazza San Gaetano 68</td>
+        </tr>
+        <tr>
+          <td class="c-num"><span class="badge luo">11</span></td>
+          <td class="c-name" data-l="Luogo">Chiesa del Gesù Nuovo<a class="wiki" href="https://it.wikipedia.org/wiki/Chiesa_del_Ges%C3%B9_Nuovo" target="_blank" rel="noopener">Wikipedia &nearr;</a></td>
+          <td class="c-desc" data-l="Descrizione">La <b>facciata a punte di diamante</b> non &egrave; una chiesa: &egrave; il muro del palazzo Sanseverino che c&rsquo;era prima. Dentro, il barocco esplode, e la cappella di <b>San Giuseppe Moscati</b> &egrave; tappezzata di ex voto d&rsquo;argento.</td>
+          <td class="c-when" data-l="Orario"><span class="hrs">07:00 &ndash; 13:00 e 16:00 &ndash; 19:30</span><em>orari legati alle funzioni</em></td>
+          <td class="c-price" data-l="Prezzo">Gratuito</td>
+          <td class="c-addr" data-l="Indirizzo">Piazza del Gesù Nuovo</td>
         </tr>
       </tbody>
     </table>
